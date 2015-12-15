@@ -5,8 +5,8 @@ html, body {
 
 .container-main {
   height: 100%;
-  margin: 0;
 }
+
 
 .main {
   background: url('http://troppa-nl.com/wp-content/uploads/2015/08/pizza-stock.jpg') no-repeat center center;
@@ -14,11 +14,16 @@ html, body {
   height: 60%;
 }
 
+.ma {
+  background: url('http://troppa-nl.com/wp-content/uploads/2015/08/pizza-stock.jpg') no-repeat center center;
+  background-size: cover;
+  height: 100%;
+}
+
 .footer {
   height: 40%;
-  min-height: 100px;
-  background-color: #2e6da4;
-
+/*bred*/
+  z-index: -100;
 }
 
 .btn-footer {

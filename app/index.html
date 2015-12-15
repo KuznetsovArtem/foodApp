@@ -14,7 +14,7 @@
   <script src="libs/angular-resource/angular-resource.min.js"></script>
   <script src="libs/angular-cookies/angular-cookies.min.js"></script>
   <script src="libs/angular-ui-router/release/angular-ui-router.min.js"></script>
-<!--material?-->
+  <!--material?-->
   <script src="libs/angular-material/angular-material.min.js"></script>
   <script src="libs/angular-aria/angular-aria.min.js"></script>
   <script src="libs/angular-animate/angular-animate.js"></script>
@@ -25,7 +25,16 @@
 </head>
 <body ng-app="foodApp" ng-cloak>
 
-<food-bg></food-bg>
+<div class="container-fluid container-main">
+
+  <div class="row container-main">
+
+    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2  ma" ng-show="$root.not2use"></div>
+
+    <food-bg class=""></food-bg>
+
+
+  </div>
 
 </body>
 </html>

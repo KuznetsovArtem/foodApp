@@ -23,6 +23,9 @@ angular
     $rootScope.authenticated = $rootScope.current_user ? true : false;
     $rootScope.access_token = $cookies.get('access_token') || null;
 
+    $rootScope.not2use = false;
+
+
   })
 
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
@@ -49,7 +52,7 @@ angular
     };
   })
 
-  .directive('foodBg', function () {
+  .directive('foodBg', function ($rootScope) {
     return {
 
       templateUrl: 'foodBg.html',
@@ -58,6 +61,9 @@ angular
         var vm = this;
         vm.toggle = true;
 
+        vm.not2use = function () {
+          $rootScope.not2use = !$rootScope.not2use;
+        };
         //4 btn mb
         //vm.goToggle = function () {
         //  vm.toggle = !vm.toggle;
@@ -124,7 +130,8 @@ angular
 
 
   <div class="row main">
-    <div class="btn btn-lg">
+
+    <div class="btn btn-lg" ng-click="bgvm.not2use()">
       <span class="glyphicon glyphicon-align-justify"></span>
     </div>
 
@@ -142,7 +149,9 @@ angular
 
 </div>`);
 
-    $templateCache.put('foodMain.html', `<div class="row navbar-fixed-bottom btn-group footer">
+    $templateCache.put('foodMain.html', `
+
+    <div class="row btn-group navbar-fixed-bottom footer">
 
       <div class="col-md-6 col-sm-6 col-xs-6 btn btn-primary btn-footer">Course: {{eatvm.perfectNyama.course}}
       <span class="caret"></span>
@@ -153,11 +162,13 @@ angular
       <div class="col-md-12 col-sm-12 col-xs-12 btn btn-primary btn-footer">Country: {{eatvm.perfectNyama.country}}
       <span class="caret"></span>
       </div>
-
       <div class="col-md-6 col-sm-6 col-xs-6 btn btn-primary btn-footer-main" ng-click="eatvm.getEat()">Random</div>
       <div class="col-md-6 col-sm-6 col-xs-6 btn btn-primary btn-footer-main" ng-if="eatvm.goToggle" ng-click="eatvm.googleOrder()">Go Order</div>
       <div class="col-md-6 col-sm-6 col-xs-6 btn btn-primary btn-footer-main" ng-if="!eatvm.goToggle" ng-click="eatvm.googleCook()">Go Cook</div>
 
-      </div>`);
+      </div>
+
+
+      `);
 
   });
