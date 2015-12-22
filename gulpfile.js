@@ -29,7 +29,8 @@ var less = require('gulp-less'),
   connect = require('gulp-connect'),
   concat = require('gulp-concat'),
   uglify = require('gulp-uglify'),
-   gutil = require('gulp-util');
+  gutil = require('gulp-util'),
+  templateCache = require('gulp-angular-templatecache');
 
 gulp.task('less', function () {
   return gulp.src('./app/styles/*.less')
@@ -49,7 +50,7 @@ gulp.task('less', function () {
 
 gulp.task('watch', function () {
   gulp.watch('./app/styles/*.less', ['less']);
-  gulp.watch(['./app/*.html'], ['html']);
+  gulp.watch(['./app/**/*.html'], ['html', 'templates']);
   gulp.watch(['./app/scripts/**/*.js'], ['scripts']);
 });
 
@@ -57,7 +58,7 @@ gulp.task('serve', ['start:server', 'watch'], function () {
   openURL('http://localhost:1337');
 });
 
-gulp.task('start:server', function() {
+gulp.task('start:server', function () {
   connect.server({
     root: AHA.app,
     livereload: true,
@@ -67,7 +68,7 @@ gulp.task('start:server', function() {
 });
 
 gulp.task('html', function () {
-  gulp.src('./app/*.html')
+  gulp.src('./app/views/**/*.html')
     .pipe(connect.reload());
 });
 
@@ -78,6 +79,13 @@ gulp.task('scripts', function () {
     .pipe(rename({suffix: '.min'}))
     .pipe(uglify().on('error', gutil.log))
     .pipe(gulp.dest('./app/scripts/'))
+    .pipe(connect.reload());
+});
+
+gulp.task('templates', function () {
+  return gulp.src('app/views/**/*.html')
+    .pipe(templateCache())
+    .pipe(gulp.dest('./app/scripts/templates'))
     .pipe(connect.reload());
 });
 

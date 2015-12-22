@@ -123,7 +123,8 @@ angular
 
     }
 
-  });
+  })
+
 
 //  .run(function ($templateCache) {
 //    $templateCache.put('foodBg.html', `<div class="container-fluid container-main">
