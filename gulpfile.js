@@ -50,7 +50,7 @@ gulp.task('watch', function () {
 });
 
 gulp.task('serve', ['start:server', 'watch'], function () {
-  openURL('http://localhost:3000');
+  openURL('http://localhost:1337');
 });
 
 gulp.task('start:server', function() {
@@ -58,7 +58,7 @@ gulp.task('start:server', function() {
     root: AHA.app,
     livereload: true,
     // Change this to '0.0.0.0' to access the server from outside.
-    port: 3000
+    port: 1337
   });
 });
 

@@ -8,6 +8,7 @@ html {
 }
 .sidebar {
   background-color: blue;
+  border: silver solid;
 }
 .main {
   background: url('http://troppa-nl.com/wp-content/uploads/2015/08/pizza-stock.jpg') no-repeat center center;
@@ -19,6 +20,28 @@ html {
   opacity: 0.5;
   margin-top: 10px;
 }
-.footer-btn {
+.eat-name-container {
+  position: absolute;
+  bottom: 10px;
+}
+.eat-toggle {
+  position: absolute;
   height: 40%;
+  bottom: 0;
+  background-color: grey;
+}
+.footer-btn-container {
+  height: 40%;
+}
+.toggle-btn {
+  height: 33%;
+}
+.footer-btn {
+  border: silver solid;
+  background-color: grey;
+}
+.plus-btn {
+  background-color: #cccccc;
+  opacity: 0.7;
+  border-radius: 20px;
 }
