@@ -15,9 +15,10 @@ angular
     'ngCookies',
     'ngResource',
     'ngRoute',
-    'ui.router'
+    'ui.router',
+    'templatescache'
   ])
-  .run(function ($rootScope, $cookies) {
+  .run(['$rootScope', '$cookies',function ($rootScope, $cookies) {
 
     $rootScope.current_user = $cookies.get('username') || null;
     $rootScope.authenticated = $rootScope.current_user ? true : false;
@@ -26,9 +27,9 @@ angular
     $rootScope.not2use = false;
 
 
-  })
+  }])
 
-  .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+  .config([ '$stateProvider', '$urlRouterProvider', '$locationProvider', function ($stateProvider, $urlRouterProvider, $locationProvider) {
 
     $locationProvider.html5Mode(true);
 
@@ -37,93 +38,118 @@ angular
     $stateProvider
       .state('main', {
         url: "/",
-        template: ""
+        template: '<div main></div>'
       })
-  })
+  }])
+  .directive('main', [function () {
+    return{
 
-  .factory('foodService', function ($http) {
-    return {
+      templateUrl: 'main.html',
+          controllerAs: 'vm',
+          controller: function () {
+            var vm = this;
+            vm.toggle = true;
 
-      getAllEat: function () {
-        return $http.get('https://eatthisplz.herokuapp.com/api/food').catch(function (e) {
-          console.log(e);
-        });
-      }
-    };
-  })
+            vm.not2use = function () {
+              $rootScope.not2use = !$rootScope.not2use;
+            };
+            //4 btn mb
+            //vm.goToggle = function () {
+            //  vm.toggle = !vm.toggle;
+            //
+            //  //var data  = { y: true };
+            //  //$scope.$broadcast('goToggle', vm.toggle);
+            //
+            //}
+          }
 
-  .directive('foodBg', function ($rootScope) {
-    return {
-
-      templateUrl: 'foodBg.html',
-      controllerAs: 'bgvm',
-      controller: function () {
-        var vm = this;
-        vm.toggle = true;
-
-        vm.not2use = function () {
-          $rootScope.not2use = !$rootScope.not2use;
-        };
-        //4 btn mb
-        //vm.goToggle = function () {
-        //  vm.toggle = !vm.toggle;
-        //
-        //  //var data  = { y: true };
-        //  //$scope.$broadcast('goToggle', vm.toggle);
-        //
-        //}
-      }
-    }
-  })
-
-  .directive('foodMain', function (foodService, $window) {
-    return {
-
-      scope: {},
-
-      bindToController: {
-        goToggle: '='
-      },
-
-      templateUrl: 'foodMain.html',
-      controllerAs: 'eatvm',
-
-      controller: function () {
-
-        var vm = this;
-        vm.nyama = null;
-        vm.perfectNyama = null;
-        vm.goToggle = true;
-
-        //$scope.$on('goToggle', function(ev, data){
-        //  vm.toggle = data;
-        //});
-
-        vm.getEat = function () {
-          return foodService.getAllEat().then(function (res) {
-            vm.nyama = res.data;
-            vm.perfectNyama = res.data[Math.floor(Math.random() * (res.data.length))];
-
-          }).catch(function (e) {
-            console.log(e);
-          })
-        };
-
-        vm.googleOrder = function () {
-          $window.location.href = 'https://www.google.com.ua/#q=заказать+' + vm.perfectNyama.name;
-          console.log('order');
-        };
-
-        vm.googleCook = function () {
-          $window.location.href = 'https://www.google.com.ua/#q=приготовить+' + vm.perfectNyama.name;
-          console.log('cook');
-
-        };
-      }
 
     }
+  }]);
 
-  })
+  //.factory('foodService', function ($http) {
+  //  return {
+  //
+  //    getAllEat: function () {
+  //      return $http.get('https://eatthisplz.herokuapp.com/api/food').catch(function (e) {
+  //        console.log(e);
+  //      });
+  //    }
+  //  };
+  //})
+  //
+  //.directive('foodBg', function ($rootScope) {
+  //  return {
+  //
+  //    templateUrl: 'foodBg.html',
+  //    controllerAs: 'bgvm',
+  //    controller: function () {
+  //      var vm = this;
+  //      vm.toggle = true;
+  //
+  //      vm.not2use = function () {
+  //        $rootScope.not2use = !$rootScope.not2use;
+  //      };
+  //      //4 btn mb
+  //      //vm.goToggle = function () {
+  //      //  vm.toggle = !vm.toggle;
+  //      //
+  //      //  //var data  = { y: true };
+  //      //  //$scope.$broadcast('goToggle', vm.toggle);
+  //      //
+  //      //}
+  //    }
+  //  }
+  //})
+  //
+  //.directive('foodMain', function (foodService, $window) {
+  //  return {
+  //
+  //    scope: {},
+  //
+  //    bindToController: {
+  //      goToggle: '='
+  //    },
+  //
+  //    templateUrl: 'foodMain.html',
+  //    controllerAs: 'eatvm',
+  //
+  //    controller: function () {
+  //
+  //      var vm = this;
+  //      vm.nyama = null;
+  //      vm.perfectNyama = null;
+  //      vm.goToggle = true;
+  //
+  //      //$scope.$on('goToggle', function(ev, data){
+  //      //  vm.toggle = data;
+  //      //});
+  //
+  //      vm.getEat = function () {
+  //        return foodService.getAllEat().then(function (res) {
+  //          vm.nyama = res.data;
+  //          vm.perfectNyama = res.data[Math.floor(Math.random() * (res.data.length))];
+  //
+  //        }).catch(function (e) {
+  //          console.log(e);
+  //        })
+  //      };
+  //
+  //      vm.googleOrder = function () {
+  //        $window.location.href = 'https://www.google.com.ua/#q=заказать+' + vm.perfectNyama.name;
+  //        console.log('order');
+  //      };
+  //
+  //      vm.googleCook = function () {
+  //        $window.location.href = 'https://www.google.com.ua/#q=приготовить+' + vm.perfectNyama.name;
+  //        console.log('cook');
+  //
+  //      };
+  //    }
+  //
+  //  }
+  //
+  //})
 
 
 //  .run(function ($templateCache) {

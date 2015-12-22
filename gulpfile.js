@@ -84,7 +84,7 @@ gulp.task('scripts', function () {
 
 gulp.task('templates', function () {
   return gulp.src('app/views/**/*.html')
-    .pipe(templateCache())
+    .pipe(templateCache(('templatescache.js', { module:'templatescache', standalone:true})))
     .pipe(gulp.dest('./app/scripts/templates'))
     .pipe(connect.reload());
 });
