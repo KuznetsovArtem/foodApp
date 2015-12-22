@@ -26,7 +26,10 @@ var less = require('gulp-less'),
   autoprefixer = require('gulp-autoprefixer'),
   minifyCss = require('gulp-minify-css'),
   rename = require('gulp-rename'),
-  connect = require('gulp-connect');
+  connect = require('gulp-connect'),
+  concat = require('gulp-concat'),
+  uglify = require('gulp-uglify'),
+   gutil = require('gulp-util');
 
 gulp.task('less', function () {
   return gulp.src('./app/styles/*.less')
@@ -47,6 +50,7 @@ gulp.task('less', function () {
 gulp.task('watch', function () {
   gulp.watch('./app/styles/*.less', ['less']);
   gulp.watch(['./app/*.html'], ['html']);
+  gulp.watch(['./app/scripts/**/*.js'], ['scripts']);
 });
 
 gulp.task('serve', ['start:server', 'watch'], function () {
@@ -67,6 +71,15 @@ gulp.task('html', function () {
     .pipe(connect.reload());
 });
 
+gulp.task('scripts', function () {
+  return gulp.src(['./app/scripts/**/*.js', '!./app/scripts/main*.js'])
+    .pipe(concat('main.js'))
+    .pipe(gulp.dest('./app/scripts/'))
+    .pipe(rename({suffix: '.min'}))
+    .pipe(uglify().on('error', gutil.log))
+    .pipe(gulp.dest('./app/scripts/'))
+    .pipe(connect.reload());
+});
 
 //441N143G
 
