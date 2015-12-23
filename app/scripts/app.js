@@ -10,16 +10,14 @@
  */
 angular
   .module('foodApp', [
-    'ngMaterial',
     'ngAnimate',
     'ngCookies',
     'ngResource',
-    'ngRoute',
     'ui.router',
-    'templatescache'
+    'templatesCache',
+    'foodMain'
   ])
   .run(['$rootScope', '$cookies',function ($rootScope, $cookies) {
-
     $rootScope.current_user = $cookies.get('username') || null;
     $rootScope.authenticated = $rootScope.current_user ? true : false;
     $rootScope.access_token = $cookies.get('access_token') || null;
@@ -40,32 +38,10 @@ angular
         url: "/",
         template: '<div main></div>'
       })
-  }])
-  .directive('main', [function () {
-    return{
 
-      templateUrl: 'main.html',
-          controllerAs: 'vm',
-          controller: function () {
-            var vm = this;
-            vm.toggle = true;
-
-            vm.not2use = function () {
-              $rootScope.not2use = !$rootScope.not2use;
-            };
-            //4 btn mb
-            //vm.goToggle = function () {
-            //  vm.toggle = !vm.toggle;
-            //
-            //  //var data  = { y: true };
-            //  //$scope.$broadcast('goToggle', vm.toggle);
-            //
-            //}
-          }
-
-
-    }
   }]);
+
+
 
   //.factory('foodService', function ($http) {
   //  return {

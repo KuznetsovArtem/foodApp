@@ -54,7 +54,7 @@ gulp.task('watch', function () {
   gulp.watch(['./app/scripts/**/*.js'], ['scripts']);
 });
 
-gulp.task('serve', ['start:server', 'watch'], function () {
+gulp.task('serve', ['start:server', 'scripts:build', 'watch'], function () {
   openURL('http://localhost:1337');
 });
 
@@ -82,10 +82,26 @@ gulp.task('scripts', function () {
     .pipe(connect.reload());
 });
 
+gulp.task('scripts:build', function () {
+  return gulp.src([
+      "./app/libs/angular/angular.min.js",
+      "./app/libs/angular-resource/angular-resource.min.js",
+      "./app/libs/angular-cookies/angular-cookies.min.js",
+      "./app/libs/angular-ui-router/release/angular-ui-router.min.js",
+      "./app/libs/angular-animate/angular-animate.js",
+    "./app/libs/bootstrap/dist/js/bootstrap.min.js"])
+
+    .pipe(concat('dependencies.js'))
+    .pipe(gulp.dest('./app/libs/'))
+    .pipe(rename({suffix: '.min'}))
+    .pipe(uglify().on('error', gutil.log))
+    .pipe(gulp.dest('./app/libs/'))
+});
+
 gulp.task('templates', function () {
   return gulp.src('app/views/**/*.html')
-    .pipe(templateCache(('templatescache.js', { module:'templatescache', standalone:true})))
-    .pipe(gulp.dest('./app/scripts/templates'))
+    .pipe(templateCache(('templatescache.js', { module:'templatesCache', standalone:true})))
+    .pipe(gulp.dest('./app/scripts/components/templatesCache'))
     .pipe(connect.reload());
 });
 
