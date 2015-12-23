@@ -6,7 +6,8 @@ angular
       bindToController:{
 
         sidebarToggle:'=',
-        backgroundClasses: '='
+        backgroundClasses: '=',
+        buyOrder: '='
 
       },
       templateUrl: 'sidebar.html',

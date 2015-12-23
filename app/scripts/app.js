@@ -17,7 +17,8 @@ angular
     'templatesCache',
     'foodMain',
     'sidebar',
-    'plusbar'
+    'plusbar',
+    'mainbar'
   ])
 
   .run(['$rootScope', '$cookies',function ($rootScope, $cookies) {
