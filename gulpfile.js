@@ -88,7 +88,6 @@ gulp.task('scripts:build', function () {
       "./app/libs/angular/angular.min.js",
       "./app/libs/angular-resource/angular-resource.min.js",
       "./app/libs/angular-cookies/angular-cookies.min.js",
-      "./app/libs/angular-ui-router/release/angular-ui-router.min.js",
       "./app/libs/angular-animate/angular-animate.js",
     "./app/libs/bootstrap/dist/js/bootstrap.min.js"])
 

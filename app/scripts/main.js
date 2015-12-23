@@ -13,7 +13,6 @@ angular
     'ngAnimate',
     'ngCookies',
     'ngResource',
-    'ui.router',
     'templatesCache',
     'foodMain',
     'sidebar',
@@ -26,21 +25,9 @@ angular
     $rootScope.authenticated = $rootScope.current_user ? true : false;
     $rootScope.access_token = $cookies.get('access_token') || null;
 
-    $rootScope.not2use = false;
-
   }])
 
-  .config([ '$stateProvider', '$urlRouterProvider', '$locationProvider', function ($stateProvider, $urlRouterProvider, $locationProvider) {
-
-    $locationProvider.html5Mode(true);
-
-    $urlRouterProvider.otherwise("main");
-
-    $stateProvider
-      .state('main', {
-        url: "/",
-        template: '<div main></div>'
-      })
+  .config([ function () {
 
   }]);
 
