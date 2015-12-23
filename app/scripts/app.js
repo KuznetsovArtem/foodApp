@@ -15,15 +15,17 @@ angular
     'ngResource',
     'ui.router',
     'templatesCache',
-    'foodMain'
+    'foodMain',
+    'sidebar',
+    'plusbar'
   ])
+
   .run(['$rootScope', '$cookies',function ($rootScope, $cookies) {
     $rootScope.current_user = $cookies.get('username') || null;
     $rootScope.authenticated = $rootScope.current_user ? true : false;
     $rootScope.access_token = $cookies.get('access_token') || null;
 
     $rootScope.not2use = false;
-
 
   }])
 

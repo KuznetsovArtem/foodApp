@@ -1,0 +1,72 @@
+<div class="container-fluid max-height">
+  <div class="row max-height">
+    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 max-height sidebar" ng-if="vm.sidebarToggle">
+
+      <div sidebar sidebar-toggle="vm.sidebarToggle"  background-classes="vm.backgroundClasses" ></div>
+
+    </div>
+
+    <div class="max-height" ng-class="vm.backgroundClasses">
+
+      <div class="row max-height">
+
+        <div class="col-md-12 main">
+          <div class="row">
+            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 btn" ng-click="vm.sidebarOpen()" ng-if="!vm.sidebarToggle">
+              <div class="fa fa-bars fa-2x "></div>
+            </div>
+            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" ng-if="vm.sidebarToggle">
+            </div>
+            <div class="col-lg-10 col-md-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 text-center">
+              <div class="fa fa-spinner fa-pulse  fa-5x"></div>
+            </div>
+
+
+            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 btn" ng-if="!vm.plusbarToggle" ng-click="vm.plusbarOpen()">
+                <div class="fa fa-plus-circle fa-2x"></div>
+              </div>
+
+                <div plusbar ng-if="vm.plusbarToggle" plusbar-toggle="vm.plusbarToggle"></div>
+
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 eat-name-container">
+
+
+              <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 eat-name  text-center">
+                  <div class="btn fa fa-lock"></div>
+                  <span>What</span>
+                  <div class="btn fa fa-chevron-circle-down"></div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 eat-name text-center">
+                  <div class="btn fa fa-lock"></div>
+                  <span>to</span>
+                  <div class="btn fa fa-chevron-circle-down"></div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 eat-name text-center">
+                  <div class="btn fa fa-lock"></div>
+                  <span>eat?</span>
+                  <div class="btn fa fa-chevron-circle-down"></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-md-12 footer-btn-container">
+          <div class="row max-height">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 btn max-height footer-btn"><div class="fa fa-random fa-5x"></div></div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 btn max-height footer-btn"><div class="fa fa-shopping-cart fa-5x"></div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
