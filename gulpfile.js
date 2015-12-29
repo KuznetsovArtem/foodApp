@@ -32,30 +32,12 @@ var less = require('gulp-less'),
   gutil = require('gulp-util'),
   templateCache = require('gulp-angular-templatecache');
 
-gulp.task('less', function () {
-  return gulp.src('./app/styles/*.less')
-    .pipe(less({
-      paths: [path.join(__dirname, 'less', 'includes')]
-    }))
-    .pipe(autoprefixer({
-      browsers: ['last 1 versions'],
-      cascade: false
-    }))
-    .pipe(gulp.dest('./app/styles'))
-    .pipe(minifyCss())
-    .pipe(rename({suffix: '.min'}))
-    .pipe(gulp.dest('./app/styles'))
-    .pipe(connect.reload());
+gulp.task('serve', ['less', 'less:tmp', 'start:server', 'watch' ], function () {
+  openURL('http://localhost:1337');
 });
 
-gulp.task('watch', function () {
-  gulp.watch('./app/styles/*.less', ['less']);
-  gulp.watch(['./app/**/*.html'], ['html']);
-  gulp.watch(['./app/scripts/**/*.js'], ['scripts']);
-  gulp.watch(['./app/**/*.html'], ['templates']);
-});
-
-gulp.task('serve', ['scripts:build', 'scripts', 'templates', 'start:server', 'watch' ], function () {
+//TODO fix this
+gulp.task('serve:prod', ['scripts:build', 'scripts', 'templates', 'start:server', 'watch' ], function () {
   openURL('http://localhost:1337');
 });
 
@@ -68,18 +50,54 @@ gulp.task('start:server', function () {
   });
 });
 
+gulp.task('watch', function () {
+  gulp.watch('./app/src/less/**/*.less', ['less']);
+  gulp.watch('./app/.tmp/**/*.less', ['less:tmp']);
+  gulp.watch(['./app/**/*.html', './app/**/*.js', './app/**/*.css'], ['html']);
+});
+
+gulp.task('less', function () {
+  return gulp.src('./app/src/less/**/*.less')
+    .pipe(less({
+      paths: [path.join(__dirname, 'less', 'includes')]
+    }))
+    .pipe(autoprefixer({
+      browsers: ['last 1 versions'],
+      cascade: false
+    }))
+    .pipe(gulp.dest('./app/src/less'))
+    .pipe(minifyCss())
+    .pipe(rename({suffix: '.min'}))
+    .pipe(gulp.dest('./dist'))
+    .pipe(connect.reload());
+});
+
+gulp.task('less:tmp', function () {
+  return gulp.src('./app/.tmp/**/*.less')
+    .pipe(less({
+      paths: [path.join(__dirname, 'less', 'includes')]
+    }))
+    .pipe(autoprefixer({
+      browsers: ['last 1 versions'],
+      cascade: false
+    }))
+    .pipe(gulp.dest('./app/.tmp/'))
+    .pipe(connect.reload());
+});
+
+
+
 gulp.task('html', function () {
   gulp.src('./app/**/*.html')
     .pipe(connect.reload());
 });
 
 gulp.task('scripts', function () {
-  return gulp.src(['./app/scripts/**/*.js', '!./app/scripts/main*.js'])
+  return gulp.src(['./app/scripts/**/*.js'])
     .pipe(concat('main.js'))
-    .pipe(gulp.dest('./app/scripts/'))
     .pipe(rename({suffix: '.min'}))
     .pipe(uglify().on('error', gutil.log))
-    .pipe(gulp.dest('./app/scripts/'))
+    .pipe(gulp.dest('./app/dist/'))
     .pipe(connect.reload());
 });
 
@@ -99,12 +117,12 @@ gulp.task('scripts:build', function () {
 });
 
 gulp.task('templates', function () {
-  return gulp.src(['app/scripts/**/*.html'])
+  return gulp.src(['./app/src/**/*.html', '!./app/src/index.html'])
     .pipe(templateCache('templatescache.js', { module:'templatesCache', standalone:true, root:'',base: function (f) {
 
       return f.relative.split('/').pop();
     }  }))
-    .pipe(gulp.dest('./app/scripts/components/templatesCache'))
+    .pipe(gulp.dest('./app/dist/templatesCache'))
     .pipe(connect.reload());
 });
 
