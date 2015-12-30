@@ -1,0 +1,51 @@
+html,
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+.container {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-flex-flow: row nowrap;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  background-color: blue;
+  height: 100%;
+}
+.leftBar {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-flex-flow: column nowrap;
+  -ms-flex-flow: column nowrap;
+  flex-flow: column nowrap;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  background-color: darkgray;
+  height: 100%;
+}
+.leftBar-item {
+  height: 100px;
+  background-color: #fff;
+}
+.mainView {
+  -webkit-flex: 4;
+  -ms-flex: 4;
+  flex: 4;
+  height: 100%;
+  background-color: blue;
+}
+.el {
+  -webkit-flex-shrink: 4;
+  -ms-flex-negative: 4;
+  flex-shrink: 4;
+}

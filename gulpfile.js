@@ -62,7 +62,7 @@ gulp.task('less', function () {
       paths: [path.join(__dirname, 'less', 'includes')]
     }))
     .pipe(autoprefixer({
-      browsers: ['last 1 versions'],
+      browsers: ['last 2 versions'],
       cascade: false
     }))
     .pipe(gulp.dest('./app/src/less'))
@@ -78,7 +78,7 @@ gulp.task('less:tmp', function () {
       paths: [path.join(__dirname, 'less', 'includes')]
     }))
     .pipe(autoprefixer({
-      browsers: ['last 1 versions'],
+      browsers: ['last 2 versions'],
       cascade: false
     }))
     .pipe(gulp.dest('./app/.tmp/'))

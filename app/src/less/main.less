@@ -1,0 +1,47 @@
+html, body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+
+.container {
+
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: row nowrap;
+
+  background-color: blue;
+  height: 100%;
+
+}
+
+.leftBar {
+
+  display: flex;
+  flex:1;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+
+  background-color: darkgray;
+  height: 100%;
+
+
+}
+
+.leftBar-item {
+  height: 100px;;
+  background-color: #fff;
+}
+
+.mainView {
+
+  flex: 4;
+
+  height: 100%;
+  background-color: blue;
+}
+
+.el{
+  flex-shrink:4;
+}
