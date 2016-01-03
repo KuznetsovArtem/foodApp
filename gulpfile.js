@@ -9,17 +9,6 @@ var rimraf = require('rimraf');
 var wiredep = require('wiredep').stream;
 var runSequence = require('run-sequence');
 
-//var inject = require('gulp-inject');
-
-//gulp.task('index', function () {
-//  var target = gulp.src('./src/index.html');
-//  // It's not necessary to read the files (will speed up things), we're only after their paths:
-//  var sources = gulp.src(['./src/**/*.js', './src/**/*.css'], {read: false});
-//
-//  return target.pipe(inject(sources))
-//    .pipe(gulp.dest('./src'));
-//});
-
 //441N143G
 var less = require('gulp-less'),
   path = require('path'),
@@ -30,9 +19,10 @@ var less = require('gulp-less'),
   concat = require('gulp-concat'),
   uglify = require('gulp-uglify'),
   gutil = require('gulp-util'),
-  templateCache = require('gulp-angular-templatecache');
+  templateCache = require('gulp-angular-templatecache'),
+  inject = require('gulp-inject');
 
-gulp.task('serve', ['less', 'less:tmp', 'start:server', 'watch' ], function () {
+gulp.task('serve', ['less', 'start:server', 'watch', 'inject' ], function () {
   openURL('http://localhost:1337');
 });
 
@@ -52,7 +42,7 @@ gulp.task('start:server', function () {
 
 gulp.task('watch', function () {
   gulp.watch('./app/src/less/**/*.less', ['less']);
-  gulp.watch('./app/.tmp/**/*.less', ['less:tmp']);
+  gulp.watch('./app/.tmp/**/*.css', ['inject']);
   gulp.watch(['./app/**/*.html', './app/**/*.js', './app/**/*.css'], ['html']);
 });
 
@@ -65,27 +55,22 @@ gulp.task('less', function () {
       browsers: ['last 2 versions'],
       cascade: false
     }))
-    .pipe(gulp.dest('./app/src/less'))
+    .pipe(gulp.dest('./app/.tmp/css'))
     .pipe(minifyCss())
     .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest('./dist'))
     .pipe(connect.reload());
 });
 
-gulp.task('less:tmp', function () {
-  return gulp.src('./app/.tmp/**/*.less')
-    .pipe(less({
-      paths: [path.join(__dirname, 'less', 'includes')]
-    }))
-    .pipe(autoprefixer({
-      browsers: ['last 2 versions'],
-      cascade: false
-    }))
-    .pipe(gulp.dest('./app/.tmp/'))
+gulp.task('inject', function () {
+  var target = gulp.src('./app/index.html');
+  // It's not necessary to read the files (will speed up things), we're only after their paths:
+  var sources = gulp.src(['./app/.tmp/**/*.css'], {read: false});
+
+  return target.pipe(inject(sources,{relative:true}))
+    .pipe(gulp.dest('./app'))
     .pipe(connect.reload());
 });
-
-
 
 gulp.task('html', function () {
   gulp.src('./app/**/*.html')
