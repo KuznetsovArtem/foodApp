@@ -1,0 +1,52 @@
+@mainColor: #ccc;
+@secondColor: #ccc;
+@thirdColor: #ccc;
+
+.leftBar {
+
+  display: flex;
+  flex: 1;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  box-sizing: border-box;
+  background-color: @secondColor;
+  height: 100%;
+  border-right: 2px solid @secondColor;
+  //TODO make space with leftBar and mainView 4 shadow
+  box-shadow: 1px 0 2px @secondColor, 4px 4px 8px @secondColor;
+
+}
+
+.leftBar__itemContainer {
+  display: flex;
+  flex-flow: column nowrap;
+  height: 70%;
+  flex-shrink: 0;
+  background-color: @mainColor;
+  border-bottom: 2px solid @secondColor;
+  box-sizing: border-box;
+
+}
+
+.leftBar__item{
+  flex-shrink: 1;
+  margin: auto;
+  height: 30%;
+}
+
+
+.leftBar__toggleContainer {
+  display: flex;
+  flex-flow: column nowrap;
+  height: 30%;
+  background-color: @mainColor;
+  flex-shrink: 0;
+
+}
+
+.leftBar__toggle {
+  height: 30%;
+  &:active{
+    height: 50%;
+  }
+}
