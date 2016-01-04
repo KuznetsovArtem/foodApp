@@ -1,0 +1,34 @@
+@mainColor: #ccc;
+@secondColor: #ccc;
+@thirdColor: #ccc;
+
+.mainView {
+
+  flex: 4;
+  height: 100%;
+}
+
+.mainView__wallpaper {
+  height: 70%;
+  background: url('http://troppa-nl.com/wp-content/uploads/2015/08/pizza-stock.jpg') no-repeat center center;
+  background-size: cover;
+  border-bottom: 2px solid @secondColor;
+  box-sizing: border-box;
+}
+
+.mainView__mainButtonsContainer {
+
+  .container;
+  height: 30%;
+  background-color: @mainColor;
+}
+
+.mainView__mainButtons {
+  width: 48%;
+  font-size: 8vh;
+  &:active{
+    width: 50%;
+  }
+}
+
+
