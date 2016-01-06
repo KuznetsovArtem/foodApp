@@ -65,7 +65,7 @@ gulp.task('less', function () {
 gulp.task('inject', function () {
   var target = gulp.src('./app/index.html');
   // It's not necessary to read the files (will speed up things), we're only after their paths:
-  var sources = gulp.src(['./app/.tmp/**/*.css'], {read: false});
+  var sources = gulp.src(['./app/.tmp/**/*.css', './app/src/**/*.js', './app/modules/**/*.js'], {read: false});
 
   return target.pipe(inject(sources,{relative:true}))
     .pipe(gulp.dest('./app'))
