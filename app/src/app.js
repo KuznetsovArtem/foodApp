@@ -2,15 +2,15 @@
 
 /**
  * @ngdoc overview
- * @name ahaApp
+ * @name foodApp
  * @description
- * # ahaApp
+ * # foodApp
  *
  * Main module of the application.
  */
 angular
-  .module('ahaApp', [
-    'ngMaterial',
+  .module('foodApp', [
+    'onsen',
     'ngAnimate',
     'ngCookies',
     'ngResource',
@@ -21,14 +21,10 @@ angular
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
+        templateUrl: 'views/about.html'
       })
       .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
+        templateUrl: 'views/about.html'
       })
       .otherwise({
         redirectTo: '/'
