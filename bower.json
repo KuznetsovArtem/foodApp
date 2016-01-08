@@ -1,16 +1,14 @@
 {
-  "name": "foodApp",
+  "name": "aha",
   "version": "0.0.1",
   "dependencies": {
-    "angular": "^1.4.0",
-    "angular-animate": "^1.4.0",
-    "angular-cookies": "^1.4.0",
-    "angular-resource": "^1.4.0",
-    "angular-route": "^1.4.0",
-    "angular-sanitize": "^1.4.0",
-    "angular-touch": "^1.4.0",
-    "bootstrap": "latest",
-    "OnsenUI": "onsenui#~1.3.14"
+    "angular": "~1.4.8",
+    "angular-route": "~1.4.8",
+    "angular-cookies": "~1.4.8",
+    "angular-animate": "~1.4.8",
+    "angular-resource": "~1.4.8",
+    "bootstrap": "~3.3.6",
+    "font-awesome": "~4.5.0"
   },
   "devDependencies": {
     "angular-mocks": "^1.4.0"
