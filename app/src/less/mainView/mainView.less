@@ -1,70 +1,133 @@
-@mainColor: #ccc;
-@secondColor: #ccc;
-@thirdColor: #ccc;
+//colors
+@headerAndDescription: #7bafab;
+@textColor: #34302d;
+@goButtons: #b1cac9;
+@randomButton: #cadede;
+@border: #5b5956;
+
+//opacity
+@headerAndDescription_opacity: 0.5;
+
+//useful functions
+.bg-transparent(@color, @alpha: 1) {
+  background: rgba(red(@color), green(@color), blue(@color), @alpha);
+}
 
 .mainView {
 
   flex: 4;
   height: 100%;
+  color: @textColor;
+
 }
 
 .mainView__wallpaper {
+
   display: flex;
   justify-content: space-between;
   flex-flow: column nowrap;
 
   height: 70%;
-  background: url('http://troppa-nl.com/wp-content/uploads/2015/08/pizza-stock.jpg') no-repeat center center;
+  background: url('./../../src/images/mneNado.jpg') no-repeat center center;
   background-size: cover;
-  border-bottom: 2px solid @secondColor;
   box-sizing: border-box;
+
 }
 
-.mainView__navigateContainer{
+.mainView__header {
+
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-  height:10%;
+  height: 10%;
   align-items: center;
+  .bg-transparent(@headerAndDescription, @headerAndDescription_opacity);
+
 }
 
-.mainView__bars{
-  margin: 1%;
+.mainView__headerItem {
+
+  text-transform: uppercase;
   font-size: 5vh;
-  background-color: @mainColor;
-  opacity: 0.5;
+  margin-left:2%;
+  margin-right:2%;
 }
 
-.mainView__foodContainer{
+.mainView__descriptionContainer {
 
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: space-around;
   height: 30%;
+  .bg-transparent(@headerAndDescription, @headerAndDescription_opacity);
+  font-size: 3vh;
+  padding: 2%;
+  text-transform: none;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
-.mainView__food{
-  display: flex;
-  justify-content: space-around;
-  font-size: 5vh;
-  text-transform: capitalize;
-  background-color: whitesmoke;
-  opacity: 0.5;
+.mainView__descriptionReadMore {
+
+  float: right;
+  overflow: hidden;
+  color: #dceaf0;
+
 }
 
 .mainView__mainButtonsContainer {
 
   .container;
+
   height: 30%;
-  background-color: @mainColor;
+  flex-flow: column;
+  justify-content: center;
+  font-size: 4vh;
+  text-transform: uppercase;
+
 }
 
-.mainView__mainButtons {
-  width: 48%;
-  font-size: 8vh;
-  &:active{
-    width: 50%;
+.mainView__goButtonsContainer {
+
+  display: flex;
+  width: 100%;
+  height: 40%;
+
+}
+
+.mainView__goButtons {
+
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  background-color: @goButtons;
+
+  &:first-child{
+
+  border-right:solid 5px @border;
+
+  }
+
+  &:active {
+
+    background-color: red;
+
   }
 }
+
+.mainView__randomButton {
+
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+  background-color: @randomButton;
+
+  &:active {
+    background-color: red;
+  }
+
+}
+
+
 
 
