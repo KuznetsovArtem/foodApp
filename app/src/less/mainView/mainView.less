@@ -15,10 +15,12 @@
 
 .mainView {
 
+  display: flex;
+  flex-flow: column;
   flex: 4;
   height: 100%;
   color: @textColor;
-
+  //justify-content: space-between;
 }
 
 .mainView__wallpaper {
@@ -26,8 +28,7 @@
   display: flex;
   justify-content: space-between;
   flex-flow: column nowrap;
-
-  height: 70%;
+  flex-grow: 1;
   background: url('./../../src/images/mneNado.jpg') no-repeat center center;
   background-size: cover;
   box-sizing: border-box;
@@ -39,25 +40,38 @@
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-  height: 10%;
   align-items: center;
+
+  height: 7vh;
+
   .bg-transparent(@headerAndDescription, @headerAndDescription_opacity);
 
 }
 
 .mainView__headerItem {
 
+  display: flex;
+  flex-flow:column;
+  justify-content: center;
+  height: 100%;
+  margin-left: 2%;
+  margin-right: 2%;
+
+}
+
+.mainView__foodName{
+
   text-transform: uppercase;
-  font-size: 5vh;
-  margin-left:2%;
-  margin-right:2%;
+  font-size: 6vh;
+
 }
 
 .mainView__descriptionContainer {
 
-  height: 30%;
+  font-family: "Arial", sans-serif;
+  font-style: italic;
   .bg-transparent(@headerAndDescription, @headerAndDescription_opacity);
-  font-size: 3vh;
+  font-size: 2.7vh;
   padding: 2%;
   text-transform: none;
   overflow: hidden;
@@ -76,7 +90,7 @@
 
   .container;
 
-  height: 30%;
+  height: 25%;
   flex-flow: column;
   justify-content: center;
   font-size: 4vh;
@@ -88,7 +102,7 @@
 
   display: flex;
   width: 100%;
-  height: 40%;
+  height: 45%;
 
 }
 
@@ -98,11 +112,12 @@
   flex-grow: 1;
   justify-content: center;
   align-items: center;
+  font-size: 6vh;
   background-color: @goButtons;
 
-  &:first-child{
+  &:first-child {
 
-  border-right:solid 5px @border;
+    border-right: solid 5px @border;
 
   }
 
@@ -121,6 +136,7 @@
   align-items: center;
   height: 50%;
   background-color: @randomButton;
+  font-size: 8vh;
 
   &:active {
     background-color: red;
