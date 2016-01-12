@@ -65,11 +65,20 @@ gulp.task('less', function () {
 gulp.task('inject', function () {
   var target = gulp.src('./app/index.html');
   // It's not necessary to read the files (will speed up things), we're only after their paths:
-  var sources = gulp.src(['./app/.tmp/**/*.css', './app/src/**/*.js', './app/modules/**/*.js'], {read: false});
+  var sources = gulp.src([
+    "./app/libs/angular/angular.min.js",
+    "./app/libs/angular-resource/angular-resource.min.js",
+    "./app/libs/angular-cookies/angular-cookies.min.js",
+    "./app/libs/angular-animate/angular-animate.js",
+
+    './app/.tmp/**/*.css',
+    './app/src/**/*.js',
+    './app/modules/**/*.js'
+  ], {read: false});
 
   return target.pipe(inject(sources,{relative:true}))
-    .pipe(gulp.dest('./app'))
-    .pipe(connect.reload());
+      .pipe(gulp.dest('./app'))
+      .pipe(connect.reload());
 });
 
 gulp.task('html', function () {
