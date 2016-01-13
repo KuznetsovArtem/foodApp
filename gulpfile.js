@@ -70,6 +70,10 @@ gulp.task('inject', function () {
     "./app/libs/angular-resource/angular-resource.min.js",
     "./app/libs/angular-cookies/angular-cookies.min.js",
     "./app/libs/angular-animate/angular-animate.js",
+    "./app/libs/angular-touch/angular-touch.js",
+    "./app/libs/angular-sanitize/angular-sanitize.js",
+    "./app/libs/angular-route/angular-route.js",
+    "./app/libs/OnsenUI/js/onsenui.js",
 
     './app/.tmp/**/*.css',
     './app/src/**/*.js',
