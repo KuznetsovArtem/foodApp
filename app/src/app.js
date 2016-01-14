@@ -23,21 +23,27 @@ angular
     .run(['$rootScope', 'localizationService', function ($rootScope, localServe) {
 
 //unit test)))
-        $rootScope.words = localServe.getWords('ru_RU');
-        console.log($rootScope.words.testTitle);
 
-        $rootScope.words = localServe.getWords('en_US');
-        console.log($rootScope.words.testTitle);
+        //no exist key
+        $rootScope.getMessage = localServe.getMessage('her');
+        console.log($rootScope.getMessage); // in console we almost translate this :-)
 
-        $rootScope.words = localServe.getWords('ua_UA');
-        console.log($rootScope.words.testTitle);
+        //exist key
+        $rootScope.getMessage = localServe.getMessage('testTitle');
+        console.log($rootScope.getMessage); //in console "food"
 
-        $rootScope.words = localServe.getWords('tarashkeviza');
-        if ($rootScope.words) {
+        //change language
+        $rootScope.setLang = localServe.setLanguage('ru_RU');
 
-            console.log($rootScope.words.testTitle);
+        //no exist key
+        $rootScope.getMessage = localServe.getMessage('her');
+        console.log($rootScope.getMessage); // in console we almost translate this :-)
 
-        }
+        //exist key
+        $rootScope.getMessage = localServe.getMessage('testTitle');
+        console.log($rootScope.getMessage); //in console "еда"
+        $rootScope.getMessage = localServe.getMessage('testSecond');
+        console.log($rootScope.getMessage); //in console "второе"
 
     }]);
 

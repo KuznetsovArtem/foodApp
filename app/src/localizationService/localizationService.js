@@ -8,6 +8,8 @@ angular
 
     .factory('localizationService', function () {
 
+        var currentLanguage = 'en_US';
+
         var supportLang = {
 
             en_US: 'english',
@@ -20,25 +22,30 @@ angular
 
             en_US: {
 
-                testTitle: 'food'
+                testTitle: 'food',
+                testSecond: 'second'
 
             },
 
             ru_RU: {
 
-                testTitle: 'еда'
+                testTitle: 'еда',
+                testSecond: 'второе'
 
             },
 
             ua_UA: {
 
-                testTitle: 'йижа'
+                testTitle: 'йижа',
+                testSecond: 'друге'
 
             }
 
         };
 
         var messages = {
+
+            languageSetSuccess: 'now your language is ',
 
             badLanguage_4dev: 'sorry, choice correct language, we are support: ',
 
@@ -49,18 +56,35 @@ angular
 
         return {
 
-            getWords: function (language) {
+            setLanguage: function (language) {
 
-                for (var prop in words) {
+                for(var prop in supportLang){
 
-                    if (language === prop) {
+                    if(prop === language){
 
-                        return words[prop];
+                        currentLanguage = prop;
+
+                        return '' + messages.languageSetSuccess + language;
+                    }
+
+                }
+
+                return console.log(messages.badLanguage_4dev + JSON.stringify(supportLang));
+
+            },
+
+            getMessage: function (wordKey) {
+
+                for (var prop in words[currentLanguage]) {
+
+                    if (wordKey === prop) {
+
+                        return words[currentLanguage][wordKey];
                     }
                 }
 
 
-                return console.log(messages.badLanguage_4dev + JSON.stringify(supportLang));
+                return messages.noTranslate;
             }
 
         }
