@@ -1,57 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>wannaEat</title>
+    <meta charset="UTF-8">
+    <title>wannaEat</title>
 
-  <!-- inject:css -->
-  <link rel="stylesheet" href=".tmp/css/main.css">
-  <!-- endinject -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href=".tmp/css/main.css">
+    <!-- endinject -->
 
-  <!-- inject:js -->
-  <script src="libs/angular/angular.min.js"></script>
-  <script src="libs/angular-resource/angular-resource.min.js"></script>
-  <script src="libs/angular-cookies/angular-cookies.min.js"></script>
-  <script src="libs/angular-animate/angular-animate.js"></script>
-  <script src="src/app.js"></script>
-  <script src="src/appController.js"></script>
-  <script src="src/food/foodService.js"></script>
-  <script src="modules/analytic/analyticService.js"></script>
-  <script src="modules/user/userService.js"></script>
-  <!-- endinject -->
+    <!-- inject:js -->
+    <script src="libs/angular/angular.min.js"></script>
+    <script src="libs/angular-resource/angular-resource.min.js"></script>
+    <script src="libs/angular-cookies/angular-cookies.min.js"></script>
+    <script src="libs/angular-animate/angular-animate.js"></script>
+    <script src="src/app.js"></script>
+    <script src="src/appController.js"></script>
+    <script src="src/common/cacheService.js"></script>
+    <script src="src/common/localizationService.js"></script>
+    <script src="src/food/foodService.js"></script>
+    <script src="modules/analytic/analyticService.js"></script>
+    <script src="modules/user/userService.js"></script>
+    <!-- endinject -->
 
-  <base href="/">
+    <base href="/">
 
 </head>
-<body>
+<body ng-app="foodApp">
 <div class="container">
 
-  <div class="mainView">
-    <div class="mainView__wallpaper">
-      <div class="mainView__header">
-        <div class="mainView__headerItem icons__menuBurger">
+    <div class="mainView">
+        <div class="mainView__wallpaper">
+            <div class="mainView__header">
+                <div class="mainView__headerItem icons__menuBurger">
+                </div>
+                <div class="mainView__headerItem">bolognese</div>
+                <div class="mainView__headerItem icons__menuVertical"></div>
+            </div>
+            <div class="mainView__descriptionContainer">
+                {{t('foodApp.main.header')}}
+                {{t('foodApp.main.header.fakeMessage')}}
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium alias delectus dicta dolorum eaque et
+                laboriosam laudantium minima modi, molestias nam neque porro possimus pra
+                <div class="mainView__descriptionReadMore">Read more</div>
+            </div>
         </div>
-        <div class="mainView__headerItem">bolognese</div>
-        <div class="mainView__headerItem icons__menuVertical"></div>
-      </div>
-      <div class="mainView__descriptionContainer">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium alias delectus dicta dolorum eaque et
-          laboriosam laudantium minima modi, molestias nam neque porro possimus pra
-        <div class="mainView__descriptionReadMore">Read more</div>
-      </div>
+
+
+        <div class="mainView__mainButtonsContainer">
+
+            <div class="mainView__goButtonsContainer">
+                <div class="mainView__goButtons">where buy?</div>
+                <div class="mainView__goButtons">how make?</div>
+            </div>
+
+            <div class="mainView__randomButton">something else</div>
+        </div>
     </div>
-
-
-    <div class="mainView__mainButtonsContainer">
-
-      <div class="mainView__goButtonsContainer">
-        <div class="mainView__goButtons">where buy?</div>
-        <div class="mainView__goButtons">how make?</div>
-      </div>
-
-      <div class="mainView__randomButton">something else</div>
-    </div>
-  </div>
 
 </div>
 

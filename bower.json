@@ -17,14 +17,5 @@
     "angular-mocks": "^1.4.0"
   },
   "appPath": "./app",
-  "moduleName": "foodApp",
-  "overrides": {
-    "bootstrap": {
-      "main": [
-        "less/bootstrap.less",
-        "dist/css/bootstrap.css",
-        "dist/js/bootstrap.js"
-      ]
-    }
-  }
+  "moduleName": "foodApp"
 }
