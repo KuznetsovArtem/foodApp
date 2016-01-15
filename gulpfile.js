@@ -78,13 +78,9 @@ gulp.task('inject:dev', function () {
         FoodAPP.app + "/libs/angular-route/angular-route.min.js",
         FoodAPP.app + "/libs/angular-cookies/angular-cookies.min.js",
         FoodAPP.app + "/libs/angular-animate/angular-animate.js",
-        FoodAPP.app + "/libs/angular-resource/angular-resource.min.js",
         FoodAPP.app + "/libs/angular-sanitize/angular-sanitize.min.js",
         FoodAPP.app + "/libs/angular-touch/angular-touch.min.js",
         FoodAPP.app + "/libs/OnsenUI/js/onsenui.min.js",
-
-        //dev
-        FoodAPP.app + "/libs/angular-mocks/angular-mocks.js",
 
         //proj
         './app/.tmp/**/*.css',
@@ -111,6 +107,7 @@ gulp.task('scripts', function () {
         .pipe(connect.reload());
 });
 
+//TODO fix this 4 prod
 gulp.task('scripts:build', function () {
     return gulp.src([
             "./app/libs/angular/angular.min.js",
