@@ -42,7 +42,16 @@
   justify-content: space-between;
   align-items: center;
 
-  height: 7vh;
+  @media screen and (orientation: portrait) {
+
+    height: 10vw;
+
+  }
+  @media screen and (orientation: landscape) {
+
+    height: 5vw;
+
+  }
 
   .bg-transparent(@headerAndDescription, @headerAndDescription_opacity);
 
@@ -51,15 +60,15 @@
 .mainView__headerItem {
 
   display: flex;
-  flex-flow:column;
+  flex-flow: column;
   justify-content: center;
   height: 100%;
-  margin-left: 2%;
-  margin-right: 2%;
+  margin-left: 10px;
+  margin-right: 10px;
 
 }
 
-.mainView__foodName{
+.mainView__foodName {
 
   text-transform: uppercase;
   font-size: 6vh;
@@ -72,7 +81,7 @@
   font-style: italic;
   .bg-transparent(@headerAndDescription, @headerAndDescription_opacity);
   font-size: 2.7vh;
-  padding: 2%;
+  padding: 10px;
   text-transform: none;
   overflow: hidden;
   box-sizing: border-box;
@@ -90,7 +99,16 @@
 
   .container;
 
-  height: 25%;
+  @media screen and (orientation: portrait) {
+
+    height: 40vw;
+
+  }
+  @media screen and (orientation: landscape) {
+
+    height: 15vw;
+
+  }
   flex-flow: column;
   justify-content: center;
   font-size: 4vh;
@@ -114,6 +132,7 @@
   align-items: center;
   font-size: 6vh;
   background-color: @goButtons;
+  overflow: hidden;
 
   &:first-child {
 
@@ -137,6 +156,7 @@
   height: 50%;
   background-color: @randomButton;
   font-size: 8vh;
+
 
   &:active {
     background-color: red;
