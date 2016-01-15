@@ -17,6 +17,7 @@
     <script src="src/appController.js"></script>
     <script src="src/common/cacheService.js"></script>
     <script src="src/common/localizationService.js"></script>
+    <script src="src/common/userModel.js"></script>
     <script src="src/food/foodService.js"></script>
     <script src="modules/analytic/analyticService.js"></script>
     <script src="modules/user/userService.js"></script>
@@ -26,7 +27,7 @@
 
 </head>
 <body ng-app="foodApp">
-<div class="container">
+<div class="container" ng-cloak ng-controller="appController">
 
     <div class="mainView">
         <div class="mainView__wallpaper">

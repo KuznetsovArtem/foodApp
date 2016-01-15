@@ -4,17 +4,17 @@
 
 angular.module('foodApp.modules.common.services.cache', [])
 
-    // TODO: storages, cache - browser, file, cookie;
-    .factory('userSessionStorage', [function() {
-
-        // FIXME: Just placeholder for localization testing
+    .factory('cacheService', ['$cacheFactory', function($cacheFactory) {
+        // TODO: cache map, setter, clear time, so on
         return {
-            getUser : function() {
-                return {
-                    name: 'Test',
-                    lang : 'ru'
-                }
+            get : function(cacheKey) {
+                return $cacheFactory(cacheKey);
+            },
+            put : function(key, value) {
+                var cached = $cacheFactory(key);
+                cached.put(key, value);
+                return value;
             }
         }
-
-    }]);
+    }])
+    // TODO: storages, cache - browser, file, cookie;

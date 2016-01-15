@@ -20,7 +20,8 @@ angular
     //'ngTouch',
     // local
     'foodApp.modules.common.services.localization',
-    'foodApp.modules.common.services.cache'
+    'foodApp.modules.common.services.cache',
+    'foodApp.modules.user'
   ])
   // TODO: uncomment after 'TODO (1)';
   //.config(['$routeProvider', function($routeProvider) {
@@ -41,9 +42,9 @@ angular
       lang: 'en'
     })
   }])
-  .run(['$rootScope', 'localizationService', 'userSessionStorage',
-    function($rootScope, localizationService, storage) {
+  .run(['$rootScope', 'localizationService', 'userModel',
+    function($rootScope, localizationService, userModel) {
       // override def lang with user's lang;
-      localizationService.setLang(storage.getUser().lang);
+      localizationService.setLang(userModel.getUser().lang);
       $rootScope.t = localizationService.getMessage;
   }]);
