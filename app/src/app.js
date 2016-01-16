@@ -14,7 +14,6 @@ angular
     //'onsen',
     //'ngAnimate',
     'ngCookies',
-    'ngResource',
     //'ngRoute',
     //'ngSanitize',
     //'ngTouch',

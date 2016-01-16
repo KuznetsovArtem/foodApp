@@ -15,9 +15,9 @@
     <script src="libs/angular-animate/angular-animate.js"></script>
     <script src="src/app.js"></script>
     <script src="src/appController.js"></script>
+    <script src="src/food/foodService.js"></script>
     <script src="src/common/cacheService.js"></script>
     <script src="src/common/localizationService.js"></script>
-    <script src="src/food/foodService.js"></script>
     <script src="modules/analytic/analyticService.js"></script>
     <script src="modules/user/userService.js"></script>
     <!-- endinject -->
@@ -26,7 +26,17 @@
 
 </head>
 <body ng-app="foodApp">
+
 <div class="container">
+
+    <div class="loading" ng-if="true">
+
+        <div>D</div>
+        <div>A</div>
+        <div>O</div>
+        <div>L</div>
+
+    </div>
 
     <div class="mainView">
         <div class="mainView__wallpaper">
@@ -37,10 +47,12 @@
                 <div class="mainView__headerItem icons__menuVertical"></div>
             </div>
             <div class="mainView__descriptionContainer">
+
                 {{t('foodApp.main.header')}}
                 {{t('foodApp.main.header.fakeMessage')}}
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium alias delectus dicta dolorum eaque et
-                laboriosam laudantium minima modi, molestias nam neque porro possimus pra
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium alias delectus dicta dolorum eaque
+                et
+                laboriosam laudantium minima modi, molestias nam neque porro possimus pra...
                 <div class="mainView__descriptionReadMore">Read more</div>
             </div>
         </div>
@@ -48,11 +60,17 @@
         <div class="mainView__mainButtonsContainer">
 
             <div class="mainView__goButtonsContainer">
-                <div class="mainView__goButtons">where buy? <div class="icons__takeMyMoney"></div></div>
-                <div class="mainView__goButtons">how make? <div class="icons__cook"></div></div>
+                <a class="mainView__goButtons fBtn" href="#">where buy?
+                    <div class="icons__takeMyMoney"></div>
+                </a>
+                <a class="mainView__goButtons fBtn" href="#">how make?
+                    <div class="icons__cook"></div>
+                </a>
             </div>
 
-            <div class="mainView__randomButton">something else <div class="icons__dice"></div></div>
+            <a class="mainView__randomButton fBtn" href="#">something else
+                <div class="icons__dice"></div>
+            </a>
         </div>
 
     </div>
