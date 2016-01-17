@@ -7,27 +7,73 @@ angular
 
     .module('foodApp')
 
-.directive('foodDescription', [function () {
+    .directive('foodDescription', [function () {
 
-    return{
+        return {
 
-        templateUrl: '/src/foodDescription/foodDescription.html',
+            templateUrl: '/src/foodDescription/foodDescription.html',
 
-        scope:{},
+            scope: {},
 
-        controller: 'foodDescriptionCtrl',
+            controller: 'foodDescriptionCtrl',
 
-        controllerAs: 'vm',
+            controllerAs: 'vm',
 
-        link: function () {
+            link: function (scope, el, atrrs) {
+
+            }
 
         }
 
-    }
+
+    }])
+
+    .controller('foodDescriptionCtrl', ['foodService', function (foodServe) {
+
+        var vm = this;
+        var symbolNumberConf = 150; //TODO make config
+
+        vm.descriptionContainer = foodServe.getDescription();
+        vm.descriptionVendor = '';
+
+        vm.openDescription = null;
+        vm.readMore = 'Read more';
+
+        var makeDescription = function (symbolNumber) {
+
+            if (vm.descriptionContainer.length) {
+
+                vm.descriptionVendor = vm.descriptionContainer.split('').slice(0, symbolNumber).join('').split(' ').slice(0, -1).join(' ') + '...';
 
 
-}])
+            } else {
 
-    .controller('foodDescriptionCtrl', [function () {
+                //TODO localization msg
+                vm.descriptionVendor = ':-)'
 
-}]);
+            }
+
+
+        };
+
+        makeDescription(symbolNumberConf);
+
+        vm.descriptionToggle = function () {
+
+            if (vm.openDescription === 'openDescription') {
+
+                vm.openDescription = null;
+                vm.readMore = 'Read more';
+                makeDescription(symbolNumberConf);
+
+            } else {
+
+                vm.descriptionVendor = vm.descriptionContainer;
+                vm.openDescription = 'openDescription';
+                vm.readMore = 'Read less';
+
+            }
+
+        }
+
+    }]);

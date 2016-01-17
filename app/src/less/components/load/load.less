@@ -31,7 +31,7 @@
     opacity: 0;
     font-family: Arial, sans-serif;
     animation: load 3s linear infinite;
-    transform: rotate(360deg);
+    transform: rotate(180deg);
     color: @textColor;
 
     &:nth-child(2) {
@@ -51,6 +51,21 @@
       animation-delay: 0.6s;
 
     }
+    &:nth-child(5) {
+
+      animation-delay: 0.8s;
+
+    }
+    &:nth-child(6) {
+
+      animation-delay: 1s;
+
+    }
+    &:nth-child(7) {
+
+      animation-delay: 1.2s;
+
+    }
 
 
   }
@@ -58,24 +73,30 @@
   @keyframes load {
 
     0% {
-      left:10%;
+      left:0;
       opacity:0;
     }
-    35% {
-      left: 41%;
+
+    30% {
+      left: 35%;
       transform:rotate(0deg);
       opacity:1;
     }
-    65% {
-      left:59%;
+    50% {
+      left:50%;
+      transform:rotate(0deg);
+      opacity:1;
+    }
+    75% {
+      left:65%;
       transform:rotate(0deg);
       opacity:1;
     }
 
     100% {
 
-      left:90%;
-      transform:rotate(-180deg);
+      left:100%;
+      transform:rotate(0deg);
 
       opacity:0;
     }

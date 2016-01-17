@@ -1,5 +1,16 @@
-.foodDescription{
+//colors
+@headerAndDescription: #7bafab;
 
+//opacity
+@headerAndDescription_opacity: 0.5;
+
+//useful functions
+.bg-transparent(@color, @alpha: 1) {
+  background: rgba(red(@color), green(@color), blue(@color), @alpha);
+}
+
+
+.foodDescription{
   font-family: Arial, sans-serif;
   font-style: italic;
   .bg-transparent(@headerAndDescription, @headerAndDescription_opacity);
@@ -9,25 +20,34 @@
   box-sizing: border-box;
 
   overflow: hidden;
-  //overflow-x: hidden;
-  //overflow-y: scroll;
-  //height: 200px;
-
-  .ellipsis {
-
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-
-  }
 
   .ReadMore {
 
+    display:block;
     float: right;
     overflow: hidden;
     color: #dceaf0;
 
   }
 
+  .openDescription{
+    overflow: scroll;
+
+    @media screen and (orientation: portrait) {
+
+      height: calc(~'100vh - 100px - 400px');
+
+
+    }
+    @media screen and (orientation: landscape) {
+
+      height: calc(~'100vh - 50px - 150px');
+
+
+    }
+
+  }
+
 }
+
 

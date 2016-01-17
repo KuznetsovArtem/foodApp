@@ -41,12 +41,12 @@
 
     @media screen and (orientation: portrait) {
 
-      height: 10vw;
+      height: 100px;
 
     }
     @media screen and (orientation: landscape) {
 
-      height: 5vw;
+      height: 50px;
 
     }
 
@@ -73,17 +73,17 @@
   }
 
   .mainButtonsContainer {
-
+    flex-shrink:0;
     .containerFlex;
 
     @media screen and (orientation: portrait) {
 
-      height: 40vw;
+      height: 400px;
 
     }
     @media screen and (orientation: landscape) {
 
-      height: 15vw;
+      height: 150px;
 
     }
     flex-flow: column;
@@ -124,7 +124,7 @@
 
       .freak {
 
-        animation: freak 3s linear infinite;
+        animation: freak 3s linear 3;
 
         @keyframes freak {
 
