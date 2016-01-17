@@ -58,6 +58,7 @@ angular
 
         makeDescription(symbolNumberConf);
 
+
         vm.descriptionToggle = function () {
 
             if (vm.openDescription === 'openDescription') {
