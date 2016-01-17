@@ -14,150 +14,199 @@
 }
 
 .mainView {
-
   display: flex;
   flex-flow: column;
   flex: 4;
   height: 100%;
   color: @textColor;
-  //justify-content: space-between;
-}
 
-.mainView__wallpaper {
+  .wallpaper {
 
-  display: flex;
-  justify-content: space-between;
-  flex-flow: column nowrap;
-  flex-grow: 1;
-  background: url('./../../src/images/mneNado.jpg') no-repeat center center;
-  background-size: cover;
-  box-sizing: border-box;
-
-}
-
-.mainView__header {
-
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
-
-  @media screen and (orientation: portrait) {
-
-    height: 10vw;
-
-  }
-  @media screen and (orientation: landscape) {
-
-    height: 5vw;
+    display: flex;
+    justify-content: space-between;
+    flex-flow: column nowrap;
+    flex-grow: 1;
+    background: url('/src/images/mneNado.jpg') no-repeat center center;
+    background-size: cover;
+    box-sizing: border-box;
 
   }
 
-  .bg-transparent(@headerAndDescription, @headerAndDescription_opacity);
+  .header {
 
-}
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
 
-.mainView__headerItem {
+    @media screen and (orientation: portrait) {
 
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
-  height: 100%;
-  margin-left: 10px;
-  margin-right: 10px;
+      height: 10vw;
 
-}
+    }
+    @media screen and (orientation: landscape) {
 
-.mainView__foodName {
+      height: 5vw;
 
-  text-transform: uppercase;
-  font-size: 6vh;
+    }
 
-}
+    .bg-transparent(@headerAndDescription, @headerAndDescription_opacity);
 
-.mainView__descriptionContainer {
+    .headerItem {
 
-  font-family: Arial, sans-serif;
-  font-style: italic;
-  .bg-transparent(@headerAndDescription, @headerAndDescription_opacity);
-  font-size: 2.7vh;
-  padding: 10px;
-  text-transform: none;
-  box-sizing: border-box;
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      height: 100%;
+      margin-left: 10px;
+      margin-right: 10px;
 
-  overflow: hidden;
-  //overflow-x: hidden;
-  //overflow-y: scroll;
-  //height: 200px;
+    }
 
-  .ellipsis {
+    .foodName {
 
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+      text-transform: uppercase;
+      font-size: 6vh;
+
+    }
+
+  }
+
+  .mainButtonsContainer {
+
+    .containerFlex;
+
+    @media screen and (orientation: portrait) {
+
+      height: 40vw;
+
+    }
+    @media screen and (orientation: landscape) {
+
+      height: 15vw;
+
+    }
+    flex-flow: column;
+    justify-content: center;
+    font-size: 4vh;
+    text-transform: uppercase;
+
+    .goButtonsContainer {
+
+      display: flex;
+      width: 100%;
+      height: 45%;
+
+      .goButtons {
+
+        flex-grow: 1;
+        font-size: 6vh;
+        background-color: @goButtons;
+        overflow: hidden;
+
+        &:first-child {
+
+          border-right: solid 5px @border;
+
+        }
+
+      }
+
+
+    }
+
+    .randomButton {
+
+      flex-grow: 1;
+      height: 50%;
+      background-color: @randomButton;
+      font-size: 8vh;
+
+      .freak {
+
+        animation: freak 3s linear infinite;
+
+        @keyframes freak {
+
+          0% {
+
+            transform: rotate(7deg);
+
+          }
+
+          10% {
+
+            transform: rotate(-7deg);
+
+          }
+
+          20% {
+
+            transform: rotate(7deg);
+
+          }
+
+          30% {
+
+            transform: rotate(-7deg);
+
+          }
+
+          40% {
+
+            transform: rotate(7deg);
+
+          }
+
+          50% {
+
+            transform: rotate(-7deg);
+
+          }
+
+          60% {
+
+            transform: rotate(7deg);
+
+          }
+
+          70% {
+
+            transform: rotate(-7deg);
+
+          }
+
+          80% {
+
+            transform: rotate(7deg);
+
+          }
+
+          90% {
+
+            transform: rotate(0deg);
+
+          }
+
+          100% {
+
+            transform: rotate(360deg);
+
+          }
+
+        }
+
+      }
+
+    }
+
+
+  }
+
+  .moveAnimation {
+
+    //left:20vw;
 
   }
 
 }
-
-.mainView__descriptionReadMore {
-
-  float: right;
-  overflow: hidden;
-  color: #dceaf0;
-
-}
-
-.mainView__mainButtonsContainer {
-
-  .container;
-
-  @media screen and (orientation: portrait) {
-
-    height: 40vw;
-
-  }
-  @media screen and (orientation: landscape) {
-
-    height: 15vw;
-
-  }
-  flex-flow: column;
-  justify-content: center;
-  font-size: 4vh;
-  text-transform: uppercase;
-
-}
-
-.mainView__goButtonsContainer {
-
-  display: flex;
-  width: 100%;
-  height: 45%;
-
-}
-
-.mainView__goButtons {
-
-  flex-grow: 1;
-  font-size: 6vh;
-  background-color: @goButtons;
-  overflow: hidden;
-
-  &:first-child {
-
-    border-right: solid 5px @border;
-
-  }
-
-}
-
-.mainView__randomButton {
-
-  flex-grow: 1;
-  height: 50%;
-  background-color: @randomButton;
-  font-size: 8vh;
-
-}
-

@@ -1,52 +1,28 @@
-@mainColor: #ccc;
-@secondColor: #ccc;
-@thirdColor: #ccc;
+@leftBarColor: #7bafab;
 
-.leftBar {
 
-  display: flex;
-  flex: 1;
-  flex-flow: column nowrap;
-  justify-content: space-between;
-  box-sizing: border-box;
-  background-color: @secondColor;
+.leftBar{
+
+  position: absolute;
+  z-index:100;
+  background: darken(@leftBarColor,0%);
   height: 100%;
-  border-right: 2px solid @secondColor;
-  //TODO make space with leftBar and mainView 4 shadow
-  box-shadow: 1px 0 2px @secondColor, 4px 4px 8px @secondColor;
-
-}
-
-.leftBar__itemContainer {
-  display: flex;
-  flex-flow: column nowrap;
-  height: 70%;
-  flex-shrink: 0;
-  background-color: @mainColor;
-  border-bottom: 2px solid @secondColor;
-  box-sizing: border-box;
-
-}
-
-.leftBar__item{
-  flex-shrink: 1;
-  margin: auto;
-  height: 30%;
-}
+  width:40vw;
+  overflow: hidden;
 
 
-.leftBar__toggleContainer {
-  display: flex;
-  flex-flow: column nowrap;
-  height: 30%;
-  background-color: @mainColor;
-  flex-shrink: 0;
+    box-shadow:20vw 0  rgba(0, 0, 0, 0.7), 60vw 0  rgba(0, 0, 0, 0.7);
 
-}
 
-.leftBar__toggle {
-  height: 30%;
-  &:active{
-    height: 50%;
+  .leftBar_content {
+
+    overflow: hidden;
+    flex-flow:column;
+    justify-content:space-between;
+    font-size: 5vh;
+
   }
+
+
 }
+
