@@ -11,10 +11,10 @@
 
 
 .foodDescription{
-  font-family: Arial, sans-serif;
+
   font-style: italic;
   .bg-transparent(@headerAndDescription, @headerAndDescription_opacity);
-  font-size: 2.7vh;
+  font-size: 50px;
   padding: 10px;
   text-transform: none;
   box-sizing: border-box;
@@ -27,12 +27,12 @@
     float: right;
     overflow: hidden;
     color: #dceaf0;
-
+    font-style: normal;
   }
 
   .openDescription{
-    overflow: scroll;
-
+    overflow-x: hidden;
+    overflow-y: scroll;
     @media screen and (orientation: portrait) {
 
       height: calc(~'100vh - 100px - 400px');

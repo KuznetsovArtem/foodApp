@@ -7,12 +7,59 @@ angular
     .module('foodApp')
 
     //TODO fix this. create 4 dev
-    .factory('foodService', [function () {
+    .factory('foodService', ['userSessionStorage', function (userServe) {
 
         var currentFood = {
 
-            "name": "pizza",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci ducimus enim maxime? Inventore iure porro quam. Asperiores beatae debitis eaque facilis iste perferendis possimus suscipit! Accusantium ad beatae corporis exercitationem inventore ipsam labore quae quas quia, quos repellat tenetur voluptas voluptate! Consectetur, error perferendis? Consequatur dolorem nulla obcaecati quia voluptates!"
+            "name": {
+
+                'ru': 'пицца',
+                'en': 'pizza'
+
+            },
+
+            "description": {
+
+                'ru': 'пиццаХорошо пиццаХорошо пиццаХорошо пиццаХорошо пиццаХорошо пиццаХорошо пиццаХорошо пиццаХорошо пиццаХорошо пиццаХорошо пиццаХорошо пиццаХорошо пиццаХорошо пиццаХорошо пиццаХорошо пиццаХорошо пиццаХорошо пиццаХорошо пиццаХорошо пиццаХорошо пиццаХорошо пиццаХорошо пиццаХорошо пиццаХорошо пиццаХорошо пиццаХорошо пиццаХорошо пиццаХорошо пиццаХорошо пиццаХорошо пиццаХорошо пиццаХорошо пиццаХорошо пиццаХорошо пиццаХорошо пиццаХорошо пиццаХорошо пиццаХорошо пиццаХорошо пиццаХорошо пиццаХорошо пиццаХорошо пиццаХорошо пиццаХорошо',
+                'en': 'pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood  pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood'
+
+            }
+
+        };
+
+        //var localizationFood = function (lang) {
+        //
+        //    var result = {};
+        //
+        //    for (var key in currentFood) {
+        //
+        //        if (currentFood[key][lang]) {
+        //
+        //            result[key] = currentFood[key][lang];
+        //
+        //        }
+        //
+        //    }
+        //
+        //    return result;
+        //
+        //}(userServe.getUser().lang);
+
+         var localizationFood = function (lang) {
+
+            var result = {};
+
+            for (var key in currentFood) {
+
+                if (currentFood[key][lang]) {
+
+                    result[key] = currentFood[key][lang];
+
+                }
+
+            }
+
+            return result;
 
         };
 
@@ -20,13 +67,7 @@ angular
 
             getFood: function () {
 
-                return currentFood;
-
-            },
-
-            getDescription: function () {
-
-                return currentFood.description;
+                return localizationFood(userServe.getUser().lang);
 
             }
 

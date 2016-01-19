@@ -8,47 +8,35 @@ angular
     .module('foodApp')
 
     .directive('foodDescription', [function () {
-
         return {
-
             templateUrl: '/src/foodDescription/foodDescription.html',
-
             scope: {},
-
-            controller: 'foodDescriptionCtrl',
-
-            controllerAs: 'vm',
-
-            link: function (scope, el, atrrs) {
-
-            }
-
+            controller: 'foodDescriptionController',
+            controllerAs: 'vm'
         }
-
-
     }])
 
-    .controller('foodDescriptionCtrl', ['foodService', function (foodServe) {
+    .controller('foodDescriptionController', ['userSessionStorage', 'foodService', '$scope', function (userServe, foodServe, $scope) {
+
 
         var vm = this;
-        var symbolNumberConf = 150; //TODO make config
+        var symbolNumberConf = 160; //TODO make config
 
-        vm.descriptionContainer = foodServe.getDescription();
+        vm.descriptionContainer = foodServe.getFood().description;
         vm.descriptionVendor = '';
-
         vm.openDescription = null;
         vm.readMore = 'Read more';
 
         var makeDescription = function (symbolNumber) {
 
-            if (vm.descriptionContainer.length) {
+            if (vm.descriptionContainer) {
 
                 vm.descriptionVendor = vm.descriptionContainer.split('').slice(0, symbolNumber).join('').split(' ').slice(0, -1).join(' ') + '...';
 
 
             } else {
 
-                //TODO localization msg
+                //TODO localization msg or remove description block
                 vm.descriptionVendor = ':-)'
 
             }
@@ -56,8 +44,15 @@ angular
 
         };
 
-        makeDescription(symbolNumberConf);
+        //TODO next few line just 4 my dev. burn, burn with angry after and uncomment (777)
+        $scope.$watch(userServe.getUser, function() {
 
+            vm.descriptionContainer = foodServe.getFood().description;
+            makeDescription(symbolNumberConf);
+
+        },true);
+
+        //makeDescription(symbolNumberConf); (777)
 
         vm.descriptionToggle = function () {
 
@@ -74,7 +69,5 @@ angular
                 vm.readMore = 'Read less';
 
             }
-
-        }
-
+        };
     }]);

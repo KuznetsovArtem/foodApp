@@ -20,6 +20,8 @@
     <script src="src/common/localizationService.js"></script>
     <script src="src/food/foodService.js"></script>
     <script src="src/foodDescription/foodDescriptionDirective.js"></script>
+    <script src="src/leftBar/leftBarDirective.js"></script>
+    <script src="src/mainView/mainViewDirective.js"></script>
     <script src="modules/analytic/analyticService.js"></script>
     <script src="modules/user/userService.js"></script>
     <!-- endinject -->
@@ -31,16 +33,7 @@
 
 <div class="container">
 
-    <div class="leftBar" ng-if="leftBar">
-
-        <div class="containerFlex leftBar_content">
-            <div ng-click="leftBarOpen()">Close</div>
-            <div>222</div>
-            <div>222</div>
-            <div>222</div>
-        </div>
-
-    </div>
+    <left-bar></left-bar>
 
     <div class="container moveAnimation">
 
@@ -59,45 +52,8 @@
 
             </div>
 
-            <div class="mainView">
+            <main-view></main-view>
 
-
-                <div class="wallpaper">
-
-
-                    <div class="header">
-                        <!--TODO fix click its just 4 dev-->
-                        <a class="headerItem  fBtn" href="" ng-click="leftBarOpen()">
-                            <div class="icons__menuBurger"></div>
-                        </a>
-
-                        <div class="headerItem foodName">bolognese</div>
-                        <div class="headerItem fBtn" href="">
-                            <div class="icons__menuVertical"></div>
-                        </div>
-                    </div>
-
-                    <food-description></food-description>
-
-                </div>
-
-                <div class="mainButtonsContainer">
-
-                    <div class="goButtonsContainer">
-                        <a class="goButtons fBtn" href="#">where buy?
-                            <div class="icons__takeMyMoney"></div>
-                        </a>
-                        <a class="goButtons fBtn" href="#">how make?
-                            <div class="icons__cook"></div>
-                        </a>
-                    </div>
-
-                    <a class="randomButton fBtn" href="#">something else
-                        <div class="icons__dice freak"></div>
-                    </a>
-                </div>
-
-            </div>
         </div>
     </div>
 

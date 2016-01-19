@@ -50,6 +50,7 @@ angular
             $rootScope.leftBar = false;
             $rootScope.leftBarOpen = function () {
             $rootScope.leftBar = !$rootScope.leftBar;
+                console.log('leftBar toggle');
             }
 
         }]);
