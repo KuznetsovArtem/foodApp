@@ -1,52 +1,110 @@
 @leftBarColor: #7bafab;
 
+.leftBar {
 
-.leftBar{
+  .leftBarToggle {
+    position: absolute;
+    left: 10px;
+    z-index: 100;
 
-  position: absolute;
-  z-index:100;
-  background: darken(@leftBarColor,0%);
-  height: 100%;
-  width:40vw;
-  overflow: hidden;
+    @media screen and (orientation: portrait) {
 
+      height: 100px;
+      width: 100px;
 
-    box-shadow:60vw 0  rgba(0, 0, 0, 0.7), 20vw 0  rgba(0, 0, 0, 0.7);
+    }
+    @media screen and (orientation: landscape) {
 
+      height: 50px;
+      width: 50px;
 
-  .leftBar_content {
-
-    overflow-x: hidden;
-    overflow-y: scroll;
-    flex-flow:column;
-    justify-content:flex-start;
-    font-size: 100px;
+    }
 
   }
 
+  .shadow {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    opacity: 0.5;
+    z-index: 99;
 
-  //animation: openLeftBar 3s linear 1;
+  }
 
-  @keyframes openLeftBar {
+  .leftBarMain {
 
-    0% {
+    position: absolute;
+    z-index: 100;
+    background: darken(@leftBarColor, 0%);
+    height: 100%;
+    width: 40vw;
+    overflow: hidden;
 
-      transform: rotate(0deg);
+    .leftBar_content {
+
+      overflow-x: hidden;
+      overflow-y: scroll;
+      flex-flow: column;
+      justify-content: flex-start;
+      font-size: 100px;
 
     }
 
-    50%{
 
-      transform:rotate(70deg);
+  }
 
+  .openAnime {
+
+    animation: openLeftBar 0.3s linear 1;
+
+    @keyframes openLeftBar {
+
+      0% {
+
+        transform: translateX(-40vw);
+
+      }
+
+      50% {
+
+        transform: translateX(-20vw);
+
+      }
+      100% {
+
+        transform: translateX(0vw);
+
+      }
 
     }
-    100% {
+  }
 
-      transform:rotate(0deg);
+  .closeAnime {
+
+    animation: closeleftBar 0.3s linear 1;
+
+    @keyframes closeleftBar {
+
+      0% {
+
+        transform: translateX(0vw);
+
+      }
+
+      50% {
+
+        transform: translateX(-20vw);
+
+      }
+      100% {
+
+        transform: translateX(-40vw);
+
+      }
 
     }
+
   }
 
 }
-

@@ -18,7 +18,7 @@
   flex-flow: column;
   flex: 4;
   height: 100vh;
-  width:100vw;
+  width: 100vw;
   color: @textColor;
 
   @media screen and (orientation: portrait) {
@@ -37,10 +37,21 @@
     display: flex;
     justify-content: space-between;
     flex-flow: column nowrap;
-    flex-grow: 1;
     background: url('/src/images/mneNado.jpg') no-repeat center center;
     background-size: cover;
     box-sizing: border-box;
+    overflow: hidden;
+
+    @media screen and (orientation: portrait) {
+
+      height: calc(~'100vh - 400px');
+
+    }
+    @media screen and (orientation: landscape) {
+
+      height: calc(~'100vh - 150px');
+
+    }
 
   }
 
@@ -79,6 +90,21 @@
 
       text-transform: uppercase;
 
+    }
+
+    .blank{
+      @media screen and (orientation: portrait) {
+
+        height:100px;
+        width:100px;
+
+      }
+      @media screen and (orientation: landscape) {
+
+        height:50px;
+        width:50px;
+
+      }
     }
 
   }

@@ -29,7 +29,6 @@ angular
             console.log('random');
         };
 
-
 //TODO next few line just 4 my dev. burn, burn with angry after.
         vm.whereBuy = function () {
 

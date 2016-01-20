@@ -1,10 +1,20 @@
-<div class="leftBar" ng-if="$root.leftBar">
+<div class="leftBar">
 
-    <div class="containerFlex leftBar_content">
-        <a class="fBtn" ng-click="$root.leftBarOpen()">Close</a>
-        <a class="fBtn">filters</a>
-        <a class="fBtn">favorites</a>
-        <a class="fBtn">last</a>
+    <a href="" ng-if="!vm.isOpen" ng-click="vm.openMe()" class="fBtn leftBarToggle"><div class="icons__menuBurger"></div></a>
+
+    <div class="shadow" ng-click="vm.openMe()" ng-if="vm.isOpen"></div>
+
+    <div class="leftBarMain " ng-class="vm.class" ng-style="vm.style" ng-if="vm.isOpen">
+
+        <div class="containerFlex leftBar_content">
+
+            <a class="fBtn">filters</a>
+            <a class="fBtn">favorites</a>
+            <a class="fBtn">last</a>
+
+        </div>
+
     </div>
 
 </div>
+
