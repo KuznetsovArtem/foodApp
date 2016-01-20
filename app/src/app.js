@@ -9,37 +9,37 @@
  * Main module of the application.
  */
 angular
-  .module('foodApp', [ // TODO: SEE 'TODO: (1)' in gulpfile;
+  .module('foodApp', [
     // 3rd party
-    //'onsen',
-    //'ngAnimate',
+    'onsen',
+    'ngAnimate',
     'ngCookies',
-    'ngResource',
-    //'ngRoute',
-    //'ngSanitize',
-    //'ngTouch',
-    // local
+    'ngRoute',
+    'ngSanitize',
+    'ngTouch',
+     //local
     'foodApp.modules.common.services.localization',
     'foodApp.modules.common.services.cache'
   ])
-  // TODO: uncomment after 'TODO (1)';
-  //.config(['$routeProvider', function($routeProvider) {
-  //  $routeProvider
-  //    .when('/', {
-  //      templateUrl: 'views/about.html'
-  //    })
-  //    .when('/about', {
-  //      templateUrl: 'views/about.html'
-  //    })
-  //    .otherwise({
-  //      redirectTo: '/'
-  //    });
-  //}])
-  .config(['localizationConfigProvider', function(localizationConfigProvider) {
-    // set default language;
+
+  .config(['$routeProvider', 'localizationConfigProvider', function($routeProvider, localizationConfigProvider) {
+
+      $routeProvider
+          .when('/', {
+            templateUrl: 'views/about.html'
+          })
+          .when('/about', {
+            templateUrl: 'views/about.html'
+          })
+          .otherwise({
+            redirectTo: '/'
+          });
+
+      // set default language;
     localizationConfigProvider.init({
       lang: 'en'
     })
+
   }])
   .run(['$rootScope', 'localizationService', 'userSessionStorage',
     function($rootScope, localizationService, storage) {
