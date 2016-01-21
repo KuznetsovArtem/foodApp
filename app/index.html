@@ -5,6 +5,7 @@
     <title>wannaEat</title>
 
     <!-- inject:css -->
+    <link rel="stylesheet" href=".tmp/css/foodDescription.css">
     <link rel="stylesheet" href=".tmp/css/main.css">
     <!-- endinject -->
 
@@ -21,6 +22,9 @@
     <script src="src/common/cacheService.js"></script>
     <script src="src/common/localizationService.js"></script>
     <script src="src/food/foodService.js"></script>
+    <script src="src/foodDescription/foodDescriptionDirective.js"></script>
+    <script src="src/leftBar/leftBarDirective.js"></script>
+    <script src="src/mainView/mainViewDirective.js"></script>
     <script src="modules/analytic/analyticService.js"></script>
     <script src="modules/user/userService.js"></script>
     <!-- endinject -->
@@ -29,38 +33,32 @@
 
 </head>
 <body ng-app="foodApp">
+
 <div class="container">
 
-    <div class="mainView">
-        <div class="mainView__wallpaper">
-            <div class="mainView__header">
-                <div class="mainView__headerItem icons__menuBurger">
-                </div>
-                <div class="mainView__headerItem mainView__foodName">bolognese</div>
-                <div class="mainView__headerItem icons__menuVertical"></div>
+    <left-bar></left-bar>
+
+    <div class="container moveAnimation">
+
+        <div class="containerFlex">
+
+
+            <div class="loading" ng-if="true">
+
+                <div>G</div>
+                <div>N</div>
+                <div>I</div>
+                <div>D</div>
+                <div>A</div>
+                <div>O</div>
+                <div>L</div>
+
             </div>
-            <div class="mainView__descriptionContainer">
-                {{t('foodApp.main.header')}}
-                {{t('foodApp.main.header.fakeMessage')}}
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium alias delectus dicta dolorum eaque et
-                laboriosam laudantium minima modi, molestias nam neque porro possimus pra
-                <div class="mainView__descriptionReadMore">Read more</div>
-            </div>
+
+            <main-view></main-view>
+
         </div>
-
-        <div class="mainView__mainButtonsContainer">
-
-            <div class="mainView__goButtonsContainer">
-                <div class="mainView__goButtons">where buy? <div class="icons__takeMyMoney"></div></div>
-                <div class="mainView__goButtons">how make? <div class="icons__cook"></div></div>
-            </div>
-
-            <div class="mainView__randomButton">something else <div class="icons__dice"></div></div>
-        </div>
-
     </div>
-
-</div>
 
 </body>
 </html>

@@ -14,156 +14,242 @@
 }
 
 .mainView {
-
   display: flex;
   flex-flow: column;
   flex: 4;
-  height: 100%;
+  height: 100vh;
+  width: 100vw;
   color: @textColor;
-  //justify-content: space-between;
-}
-
-.mainView__wallpaper {
-
-  display: flex;
-  justify-content: space-between;
-  flex-flow: column nowrap;
-  flex-grow: 1;
-  background: url('./../../src/images/mneNado.jpg') no-repeat center center;
-  background-size: cover;
-  box-sizing: border-box;
-
-}
-
-.mainView__header {
-
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
 
   @media screen and (orientation: portrait) {
 
-    height: 10vw;
+    font-size: 50px;
 
   }
   @media screen and (orientation: landscape) {
 
-    height: 5vw;
+    font-size: 30px;
 
   }
 
-  .bg-transparent(@headerAndDescription, @headerAndDescription_opacity);
+  .wallpaper {
 
-}
+    display: flex;
+    justify-content: space-between;
+    flex-flow: column nowrap;
+    background: url('/src/images/mneNado.jpg') no-repeat center center;
+    background-size: cover;
+    box-sizing: border-box;
+    overflow: hidden;
 
-.mainView__headerItem {
+    @media screen and (orientation: portrait) {
 
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
-  height: 100%;
-  margin-left: 10px;
-  margin-right: 10px;
+      height: calc(~'100vh - 400px');
 
-}
+    }
+    @media screen and (orientation: landscape) {
 
-.mainView__foodName {
+      height: calc(~'100vh - 150px');
 
-  text-transform: uppercase;
-  font-size: 6vh;
-
-}
-
-.mainView__descriptionContainer {
-
-  font-family: "Arial", sans-serif;
-  font-style: italic;
-  .bg-transparent(@headerAndDescription, @headerAndDescription_opacity);
-  font-size: 2.7vh;
-  padding: 10px;
-  text-transform: none;
-  overflow: hidden;
-  box-sizing: border-box;
-}
-
-.mainView__descriptionReadMore {
-
-  float: right;
-  overflow: hidden;
-  color: #dceaf0;
-
-}
-
-.mainView__mainButtonsContainer {
-
-  .container;
-
-  @media screen and (orientation: portrait) {
-
-    height: 40vw;
-
-  }
-  @media screen and (orientation: landscape) {
-
-    height: 15vw;
-
-  }
-  flex-flow: column;
-  justify-content: center;
-  font-size: 4vh;
-  text-transform: uppercase;
-
-}
-
-.mainView__goButtonsContainer {
-
-  display: flex;
-  width: 100%;
-  height: 45%;
-
-}
-
-.mainView__goButtons {
-
-  display: flex;
-  flex-grow: 1;
-  justify-content: center;
-  align-items: center;
-  font-size: 6vh;
-  background-color: @goButtons;
-  overflow: hidden;
-
-  &:first-child {
-
-    border-right: solid 5px @border;
+    }
 
   }
 
-  &:active {
+  .header {
 
-    background-color: red;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+    @media screen and (orientation: portrait) {
+
+      height: 100px;
+
+    }
+    @media screen and (orientation: landscape) {
+
+      height: 50px;
+
+    }
+
+    .bg-transparent(@headerAndDescription, @headerAndDescription_opacity);
+
+    .headerItem {
+
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      height: 100%;
+      margin-left: 10px;
+      margin-right: 10px;
+
+    }
+
+    .foodName {
+
+      text-transform: uppercase;
+
+    }
+
+    .blank{
+      @media screen and (orientation: portrait) {
+
+        height:100px;
+        width:100px;
+
+      }
+      @media screen and (orientation: landscape) {
+
+        height:50px;
+        width:50px;
+
+      }
+    }
 
   }
-}
 
-.mainView__randomButton {
+  .mainButtonsContainer {
+    flex-shrink: 0;
+    .containerFlex;
 
-  display: flex;
-  flex-grow: 1;
-  justify-content: center;
-  align-items: center;
-  height: 50%;
-  background-color: @randomButton;
-  font-size: 8vh;
+    @media screen and (orientation: portrait) {
 
+      height: 400px;
 
-  &:active {
-    background-color: red;
+    }
+    @media screen and (orientation: landscape) {
+
+      height: 150px;
+
+    }
+    flex-flow: column;
+    justify-content: center;
+    text-transform: uppercase;
+
+    .goButtonsContainer {
+
+      display: flex;
+      width: 100%;
+      height: 45%;
+
+      .goButtons {
+
+        flex-grow: 1;
+        background-color: @goButtons;
+        overflow: hidden;
+
+        &:first-child {
+
+          border-right: solid 5px @border;
+
+        }
+
+      }
+
+    }
+
+    .randomButton {
+
+      @media screen and (orientation: portrait) {
+
+        font-size: 70px;
+
+      }
+      @media screen and (orientation: landscape) {
+
+        font-size: 50px;
+
+      }
+
+      flex-grow: 1;
+      height: 50%;
+      background-color: @randomButton;
+      overflow: hidden;
+
+      .freak {
+
+        animation: freak 3s linear 3;
+
+        @keyframes freak {
+
+          0% {
+
+            transform: rotate(7deg);
+
+          }
+
+          10% {
+
+            transform: rotate(-7deg);
+
+          }
+
+          20% {
+
+            transform: rotate(7deg);
+
+          }
+
+          30% {
+
+            transform: rotate(-7deg);
+
+          }
+
+          40% {
+
+            transform: rotate(7deg);
+
+          }
+
+          50% {
+
+            transform: rotate(-7deg);
+
+          }
+
+          60% {
+
+            transform: rotate(7deg);
+
+          }
+
+          70% {
+
+            transform: rotate(-7deg);
+
+          }
+
+          80% {
+
+            transform: rotate(7deg);
+
+          }
+
+          90% {
+
+            transform: rotate(0deg);
+
+          }
+
+          100% {
+
+            transform: rotate(360deg);
+
+          }
+
+        }
+
+      }
+
+    }
+
   }
 
 }
 
+.moveAnimation {
 
-
-
+  //left:200px;
+}
