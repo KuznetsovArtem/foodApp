@@ -16,8 +16,7 @@ angular
 
                 $scope.descriptionContainer = '1pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood  pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood'
                 $scope.descriptionVendor = '';
-                $scope.openDescription = null;
-                $scope.readMore = 'Read more';
+                $scope.openDescription = false;
 
                 var makeDescription = function (symbolNumber) {
 
@@ -27,26 +26,9 @@ angular
                         //TODO localization msg or remove description block
                         $scope.descriptionVendor = ':-)'
                     }
-                };
+                }(symbolNumberConf);
 
-                makeDescription(symbolNumberConf);
 
-                $scope.descriptionToggle = function () {
-
-                    if ($scope.openDescription === 'openDescription') {
-
-                        $scope.openDescription = null;
-                        $scope.readMore = 'Read more';
-                        makeDescription(symbolNumberConf);
-
-                    } else {
-
-                        $scope.descriptionVendor = $scope.descriptionContainer;
-                        $scope.openDescription = 'openDescription';
-                        $scope.readMore = 'Read less';
-
-                    }
-                };
             }
         }
     }]);
