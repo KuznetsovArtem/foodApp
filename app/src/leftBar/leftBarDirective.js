@@ -9,18 +9,13 @@ angular
     .directive('leftBar', [function () {
         return {
             templateUrl: '/src/leftBar/leftBar.html',
-            controller: function ($scope) {
-//TODO make access to config
-                var config = {
-                    anime: {
-                        first: 'slide'
-                    },
-                    style: {'width': '500px'}
-                };
+            scope:{
 
-                $scope.isOpen = false;
-                $scope.class = config.anime.first;
-                $scope.style = config.style;
+                config: '=',
+                isOpen: '='
+
+            },
+            controller: function ($scope) {
 
             }
         }

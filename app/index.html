@@ -30,11 +30,11 @@
     <base href="/">
 
 </head>
-<body ng-app="foodApp">
+<body ng-app="foodApp" ng-controller="appController">
 
 <div class="container">
 
-    <left-bar></left-bar>
+    <left-bar config="configLeftBar" isOpen="false"></left-bar>
 
     <div class="container moveAnimation">
 
