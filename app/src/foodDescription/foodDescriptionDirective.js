@@ -10,9 +10,11 @@ angular
     .directive('foodDescription', [function () {
         return {
             templateUrl: '/src/foodDescription/foodDescription.html',
+            scope:{
+                config: '='
+            },
             controller: function ($scope, $element, $attrs) {
 
-                var symbolNumberConf = 180; //TODO make config
 
                 $scope.descriptionContainer = '1pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood  pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood'
                 $scope.descriptionVendor = '';
@@ -26,7 +28,7 @@ angular
                         //TODO localization msg or remove description block
                         $scope.descriptionVendor = ':-)'
                     }
-                }(symbolNumberConf);
+                }($scope.config.symbolNumber);
 
 
             }
