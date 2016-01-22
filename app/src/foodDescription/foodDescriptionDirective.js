@@ -16,6 +16,16 @@ angular
             controller: function ($scope, $element, $attrs) {
 
 
+                if(!$scope.config){
+
+                    $scope.config = {
+
+                        symbolNumber: '190'
+
+                    };
+
+                }
+
                 $scope.descriptionContainer = '1pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood  pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood'
                 $scope.descriptionVendor = '';
                 $scope.openDescription = false;
@@ -24,10 +34,8 @@ angular
 
                     if ($scope.descriptionContainer) {
                         $scope.descriptionVendor = $scope.descriptionContainer.slice(0, symbolNumber).split(' ').slice(0, -1).join(' ') + '...';
-                    } else {
-                        //TODO localization msg or remove description block
-                        $scope.descriptionVendor = ':-)'
                     }
+
                 }($scope.config.symbolNumber);
 
 
