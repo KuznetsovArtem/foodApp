@@ -2,7 +2,7 @@
 @headerAndDescription: #7bafab;
 
 //opacity
-@headerAndDescription_opacity: 0.5;
+@headerAndDescription_opacity: 0.7;
 
 //useful functions
 .bg-transparent(@color, @alpha: 1) {
@@ -14,8 +14,8 @@
 
   font-style: italic;
   .bg-transparent(@headerAndDescription, @headerAndDescription_opacity);
-  font-size: 50px;
-  padding: 10px;
+  font-size: 15px;
+  padding: 5px;
   text-transform: none;
   box-sizing: border-box;
 
@@ -33,17 +33,17 @@
   .openDescription{
     overflow-x: hidden;
     overflow-y: scroll;
-    font-size: 50px;
+    font-size: 15px;
 
     @media screen and (orientation: portrait) {
 
-      height: calc(~'100vh - 100px - 400px');
+      height: calc(~'100vh - 50px - 200px');
 
 
     }
     @media screen and (orientation: landscape) {
 
-      height: calc(~'100vh - 50px - 150px');
+      height: calc(~'100vh - 25px - 75px');
 
 
     }

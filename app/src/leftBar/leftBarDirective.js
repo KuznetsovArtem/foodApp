@@ -22,7 +22,7 @@ angular
 
 //this will be list with animates, u'll setUp what u whant in 'anime'
                         anime: 'slide',
-                        style: {'width': '500px'}
+                        style: {'width': '50px'}
 
                     };
                 }
