@@ -5,7 +5,6 @@
     <title>wannaEat</title>
 
     <!-- inject:css -->
-    <link rel="stylesheet" href=".tmp/css/foodDescription.css">
     <link rel="stylesheet" href=".tmp/css/main.css">
     <!-- endinject -->
 
@@ -21,10 +20,9 @@
     <script src="src/appController.js"></script>
     <script src="src/common/cacheService.js"></script>
     <script src="src/common/localizationService.js"></script>
-    <script src="src/food/foodService.js"></script>
     <script src="src/foodDescription/foodDescriptionDirective.js"></script>
+    <script src="src/food/foodService.js"></script>
     <script src="src/leftBar/leftBarDirective.js"></script>
-    <script src="src/mainView/mainViewDirective.js"></script>
     <script src="modules/analytic/analyticService.js"></script>
     <script src="modules/user/userService.js"></script>
     <!-- endinject -->
@@ -32,16 +30,15 @@
     <base href="/">
 
 </head>
-<body ng-app="foodApp">
+<body ng-app="foodApp" ng-controller="appController">
 
 <div class="container">
 
-    <left-bar></left-bar>
+    <left-bar config="configLeftBar" isOpen="false"></left-bar>
 
     <div class="container moveAnimation">
 
         <div class="containerFlex">
-
 
             <div class="loading" ng-if="true">
 
@@ -55,10 +52,43 @@
 
             </div>
 
-            <main-view></main-view>
+            <div class="mainView">
+
+                <div class="wallpaper">
+
+                    <div class="header">
+                        <div class="headerItem blank"></div>
+
+                        <div class="headerItem foodName">xz</div>
+                        <div class="headerItem fBtn" href="">
+                            <div class="icons__menuVertical"></div>
+                        </div>
+                    </div>
+
+                    <food-description config="configDescription"></food-description>
+
+                </div>
+
+                <div class="mainButtonsContainer">
+
+                    <div class="goButtonsContainer">
+                        <a class="goButtons fBtn" href="" ng-click="">where buy?
+                            <div class="icons__takeMyMoney"></div>
+                        </a>
+                        <a class="goButtons fBtn" href="" ng-click="">how make?
+                            <div class="icons__cook"></div>
+                        </a>
+                    </div>
+
+                    <a class="randomButton fBtn" href="" ng-click="">something else
+                        <div class="icons__dice freak"></div>
+                    </a>
+                </div>
+
+            </div>
 
         </div>
     </div>
-
+</div>
 </body>
 </html>

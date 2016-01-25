@@ -37,10 +37,14 @@ angular.module('foodApp.modules.common.services.localization', [])
 
         var messages = {
           'ru' : {
-              'foodApp.main.header' : 'Текст на хидере'
+              'foodApp.main.header' : 'Текст на хидере',
+              'foodApp.description.readMore' : 'read more',
+              'foodApp.description.readLess' : 'read less'
           },
           'en' : {
-              'foodApp.main.header' : 'Text on header'
+              'foodApp.main.header' : 'Text on header',
+              'foodApp.description.readMore' : 'Больше информации',
+              'foodApp.description.readLess' : 'Меньше информации'
           }
         };
         return {

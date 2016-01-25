@@ -6,57 +6,27 @@
 angular
 
     .module('foodApp')
-
     .directive('leftBar', [function () {
         return {
             templateUrl: '/src/leftBar/leftBar.html',
-            scope: {},
-            controller: 'leftBarController',
-            controllerAs: 'vm'
-        }
-    }])
+            scope: {
 
-    .controller('leftBarController', ['$timeout', function ($timeout) {
+                config: '=',
+                isOpen: '='
 
-        var config = {
-
-            anime: {
-
-                open: 'openAnime',
-                close: 'closeAnime',
-                time: '290'
             },
+            controller: function ($scope) {
 
-            style:{ 'width': '50vw'}
+                if (!$scope.config) {
+                    $scope.config = {
 
-        };
+//this will be list with animates, u'll setUp what u whant in 'anime'
+                        anime: 'slide',
+                        style: {'width': '500px'}
 
-        var vm = this;
-
-        vm.isOpen = false;
-
-        vm.class = config.anime.open;
-        vm.style = config.style;
-
-        vm.openMe = function () {
-
-            if (vm.isOpen === true) {
-
-                vm.class = config.anime.close;
-
-                $timeout(function () {
-
-                    vm.isOpen = !vm.isOpen;
-
-                }, config.anime.time);
-
-            }else{
-
-                vm.isOpen = !vm.isOpen;
-                vm.class = config.anime.open;
+                    };
+                }
 
             }
-
-        };
-
+        }
     }]);

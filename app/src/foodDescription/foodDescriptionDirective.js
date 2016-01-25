@@ -10,64 +10,35 @@ angular
     .directive('foodDescription', [function () {
         return {
             templateUrl: '/src/foodDescription/foodDescription.html',
-            scope: {},
-            controller: 'foodDescriptionController',
-            controllerAs: 'vm'
+            scope:{
+                config: '='
+            },
+            controller: function ($scope, $element, $attrs) {
+
+
+                if(!$scope.config){
+
+                    $scope.config = {
+
+                        symbolNumber: '190'
+
+                    };
+
+                }
+
+                $scope.descriptionContainer = '1pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood  pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood'
+                $scope.descriptionVendor = '';
+                $scope.openDescription = false;
+
+                var makeDescription = function (symbolNumber) {
+
+                    if ($scope.descriptionContainer) {
+                        $scope.descriptionVendor = $scope.descriptionContainer.slice(0, symbolNumber).split(' ').slice(0, -1).join(' ') + '...';
+                    }
+
+                }($scope.config.symbolNumber);
+
+
+            }
         }
-    }])
-
-    .controller('foodDescriptionController', ['userSessionStorage', 'foodService', '$scope', function (userServe, foodServe, $scope) {
-
-
-        var vm = this;
-        var symbolNumberConf = 160; //TODO make config
-
-        vm.descriptionContainer = foodServe.getFood().description;
-        vm.descriptionVendor = '';
-        vm.openDescription = null;
-        vm.readMore = 'Read more';
-
-        var makeDescription = function (symbolNumber) {
-
-            if (vm.descriptionContainer) {
-
-                vm.descriptionVendor = vm.descriptionContainer.split('').slice(0, symbolNumber).join('').split(' ').slice(0, -1).join(' ') + '...';
-
-
-            } else {
-
-                //TODO localization msg or remove description block
-                vm.descriptionVendor = ':-)'
-
-            }
-
-
-        };
-
-        //TODO next few line just 4 my dev. burn, burn with angry after and uncomment (777)
-        $scope.$watch(userServe.getUser, function() {
-
-            vm.descriptionContainer = foodServe.getFood().description;
-            makeDescription(symbolNumberConf);
-
-        },true);
-
-        //makeDescription(symbolNumberConf); (777)
-
-        vm.descriptionToggle = function () {
-
-            if (vm.openDescription === 'openDescription') {
-
-                vm.openDescription = null;
-                vm.readMore = 'Read more';
-                makeDescription(symbolNumberConf);
-
-            } else {
-
-                vm.descriptionVendor = vm.descriptionContainer;
-                vm.openDescription = 'openDescription';
-                vm.readMore = 'Read less';
-
-            }
-        };
     }]);
