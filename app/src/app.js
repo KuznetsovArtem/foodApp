@@ -27,10 +27,10 @@ angular
 
         $routeProvider
             .when('/', {
-                templateUrl: 'views/about.html'
+                templateUrl: 'src/startPage/startPage.html'
             })
-            .when('/about', {
-                templateUrl: 'views/about.html'
+            .when('/mainPage', {
+                templateUrl: 'src/mainPage/mainPage.html'
             })
             .otherwise({
                 redirectTo: '/'
