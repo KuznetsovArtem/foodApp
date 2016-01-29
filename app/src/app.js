@@ -23,6 +23,7 @@ angular
         'foodApp.modules.common.services.cache'
     ])
 
+  // TODO: move routing to routing.js in /
     .config(['$routeProvider', 'localizationConfigProvider', function ($routeProvider, localizationConfigProvider) {
 
         $routeProvider
