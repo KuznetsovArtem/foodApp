@@ -16,4 +16,4 @@ angular.module('foodApp.modules.common.services.localCache', [])
             }
         }
     }]);
-    // TODO: storages, cache - browser, file, cookie;
+// TODO: storages, cache - browser, file, cookie;

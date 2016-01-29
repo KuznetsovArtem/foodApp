@@ -1,0 +1,19 @@
+<div class="leftBar">
+
+    <a href="" ng-show="!isOpen" ng-click="isOpen = !isOpen" class="fBtn leftBarToggle"><div class="icons__menuBurger"></div></a>
+
+    <div class="shadow" ng-click="isOpen = !isOpen" ng-show="isOpen"></div>
+
+    <div class="leftBarMain" ng-class="config.anime"  ng-style="config.style" ng-show="isOpen">
+
+        <div class="containerFlex leftBar_content">
+
+            <a class="fBtn">filters</a>
+            <a class="fBtn">favorites</a>
+            <a class="fBtn">last</a>
+
+        </div>
+
+    </div>
+
+</div>
