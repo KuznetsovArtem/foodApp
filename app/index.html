@@ -20,6 +20,7 @@
     <script src="src/appController.js"></script>
     <script src="src/common/cacheService.js"></script>
     <script src="src/common/localizationService.js"></script>
+    <script src="src/common/userModel.js"></script>
     <script src="src/food/foodService.js"></script>
     <script src="src/foodDescription/foodDescriptionDirective.js"></script>
     <script src="src/leftBar/leftBarDirective.js"></script>
@@ -30,9 +31,8 @@
     <base href="/">
 
 </head>
-<body ng-app="foodApp" ng-controller="appController">
-
-<div class="container">
+<body ng-app="foodApp" style="display: none;">
+<div class="container" ng-cloak ng-controller="appController">
 
     <div class="loading" ng-if="true">
 

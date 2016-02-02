@@ -20,10 +20,11 @@ angular
         'ngTouch',
         //local
         'foodApp.modules.common.services.localization',
-        'foodApp.modules.common.services.cache'
+        'foodApp.modules.common.services.localCache'
     ])
 
-    .config(['$routeProvider', 'localizationConfigProvider', function ($routeProvider, localizationConfigProvider) {
+  // TODO: move routing to routing.js in /
+    .config(['$routeProvider', function ($routeProvider) {
 
         $routeProvider
             .when('/', {
@@ -35,20 +36,28 @@ angular
             .otherwise({
                 redirectTo: '/'
             });
+    }])
+
+    .config([
+        'localizationConfigProvider',
+        'localCacheConfigProvider',
+        function(
+            localizationConfigProvider,
+            localCacheConfigProvider) {
 
         // set default language;
         localizationConfigProvider.init({
-            lang: 'en'
-        })
+           lang: 'en'
+        });
 
+        localCacheConfigProvider.init({
+           prefix: 'foodApp'
+        });
     }])
 
-    .run(['$rootScope', 'localizationService', 'userSessionStorage',
-        function ($rootScope, localizationService, storage) {
+    .run(['$rootScope', 'localizationService',
+        function ($rootScope, localizationService) {
             // override def lang with user's lang;
-            localizationService.setLang(storage.getUser().lang);
             $rootScope.t = localizationService.getMessage;
-
-
         }]);
 
