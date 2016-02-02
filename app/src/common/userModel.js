@@ -5,7 +5,7 @@
 
 angular.module('foodApp.modules.user', [])
 
-    .factory('userModel', ['$q', 'cacheService', function($q, cacheService) {
+    .factory('userModel', ['$q', 'localCacheService', function($q, localCacheService) {
 
         // TODO: remove this after getting real data;
         var mockedUserData = {
