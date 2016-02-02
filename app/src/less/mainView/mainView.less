@@ -8,6 +8,11 @@
 //opacity
 @headerAndDescription_opacity: 0.5;
 
+//sizes
+@HeaderHeight: 50px;
+@mainButtonsContainerHeight: 200px;
+
+
 //useful functions
 .bg-transparent(@color, @alpha: 1) {
   background: rgba(red(@color), green(@color), blue(@color), @alpha);
@@ -44,7 +49,7 @@
 
     @media screen and (orientation: portrait) {
 
-      height: calc(~'100vh - 200px');
+      height: calc(~'100vh - @{mainButtonsContainerHeight}');
 
     }
     @media screen and (orientation: landscape) {
@@ -64,7 +69,7 @@
 
     @media screen and (orientation: portrait) {
 
-      height: 50px;
+      height: @HeaderHeight;
 
     }
     @media screen and (orientation: landscape) {
@@ -115,7 +120,7 @@
 
     @media screen and (orientation: portrait) {
 
-      height: 200px;
+      height: @mainButtonsContainerHeight;
 
     }
     @media screen and (orientation: landscape) {

@@ -16,7 +16,7 @@ angular
 
             },
             controller: function ($scope) {
-
+                
                 if (!$scope.config) {
                     $scope.config = {
 
@@ -26,6 +26,8 @@ angular
 
                     };
                 }
+
+
 
             }
         }

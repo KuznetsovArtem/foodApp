@@ -34,61 +34,22 @@
 
 <div class="container">
 
-    <left-bar config="configLeftBar" isOpen="false"></left-bar>
+    <div class="loading" ng-if="true">
 
-    <div class="container moveAnimation">
+        <div>G</div>
+        <div>N</div>
+        <div>I</div>
+        <div>D</div>
+        <div>A</div>
+        <div>O</div>
+        <div>L</div>
 
-        <div class="containerFlex">
-
-            <div class="loading" ng-if="true">
-
-                <div>G</div>
-                <div>N</div>
-                <div>I</div>
-                <div>D</div>
-                <div>A</div>
-                <div>O</div>
-                <div>L</div>
-
-            </div>
-
-            <div class="mainView">
-
-                <div class="wallpaper">
-
-                    <div class="header">
-                        <div class="headerItem blank"></div>
-
-                        <div class="headerItem foodName">xz</div>
-                        <div class="headerItem fBtn" href="">
-                            <div class="icons__menuVertical"></div>
-                        </div>
-                    </div>
-
-                    <food-description config="configDescription"></food-description>
-
-                </div>
-
-                <div class="mainButtonsContainer">
-
-                    <div class="goButtonsContainer">
-                        <a class="goButtons fBtn" href="" ng-click="">where buy?
-                            <div class="icons__takeMyMoney"></div>
-                        </a>
-                        <a class="goButtons fBtn" href="" ng-click="">how make?
-                            <div class="icons__cook"></div>
-                        </a>
-                    </div>
-
-                    <a class="randomButton fBtn" href="" ng-click="">something else
-                        <div class="icons__dice freak"></div>
-                    </a>
-                </div>
-
-            </div>
-
-        </div>
     </div>
+
+    <left-bar config="configLeftBar" is-open="false"></left-bar>
+
+    <div ng-view=""></div>
+
 </div>
 </body>
 </html>
