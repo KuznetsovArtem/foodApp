@@ -24,7 +24,9 @@ angular
     ])
 
   // TODO: move routing to routing.js in /
-    .config(['$routeProvider', function ($routeProvider) {
+    .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+
+        $locationProvider.html5Mode(true);
 
         $routeProvider
             .when('/', {

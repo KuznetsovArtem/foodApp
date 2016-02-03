@@ -31,10 +31,10 @@
     <base href="/">
 
 </head>
-<body ng-app="foodApp" style="display: none;">
+<body ng-app="foodApp">  <!--style="display: none;"-->
 <div class="container" ng-cloak ng-controller="appController">
 
-    <div class="loading" ng-if="true">
+    <div class="loading" ng-show="false">
 
         <div>G</div>
         <div>N</div>
@@ -46,9 +46,9 @@
 
     </div>
 
-    <left-bar config="configLeftBar" is-open="false"></left-bar>
+    <left-bar config="configLeftBar" is-open="configLeftBar.isOpen"></left-bar>
 
-    <div ng-view=""></div>
+    <div class="container" ng-style="configLeftBar.isOpen ? configLeftBar.style.push: ''" ng-view=""></div>
 
 </div>
 </body>

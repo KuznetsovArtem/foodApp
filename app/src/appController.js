@@ -20,9 +20,14 @@ angular.module('foodApp')
 
         //configs
         $scope.configLeftBar = {
+            isOpen:false,
             //here will be list with animates, u'll setUp what u whant in 'anime'
             anime: 'slide',
-            style: {'width': '150px'}
+            style: {width: '150px',
+            push:{
+                // 4 anime.slide must be like style.width
+                'left':'150px'
+            }}
 
         };
 
