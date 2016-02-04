@@ -35,6 +35,15 @@ angular
             .when('/mainPage', {
                 templateUrl: 'src/mainPage/mainPage.html'
             })
+            .when('/filtersPage', {
+                templateUrl: 'src/filtersPage/filtersPage.html'
+            })
+            .when('/settingPage', {
+                templateUrl: 'src/settingPage/settingPage.html'
+            })
+            .when('/historyPage', {
+                templateUrl: 'src/historyPage/historyPage.html'
+            })
             .otherwise({
                 redirectTo: '/'
             });

@@ -24,12 +24,15 @@ angular.module('foodApp')
         };
 
 
+
         // TODO: move to own provider/service
         var CONFIG = {
             leftBar : {
-                //here will be list with animates, u'll setUp what u whant in 'anime'
+                isOpen: false,
+                //here will be list with animates, u'll setUp what u want in 'anime'
                 animation: 'slide',
-                style: {'width': '150px'}
+                //don't touch this plz
+                style: {'width': '40vw'}
             },
             descriptionDirective : {
                 symbolNumber: '180'

@@ -10,14 +10,15 @@ angular
             templateUrl: '/src/leftBar/leftBar.html',
             scope: {
                 config: '=',
-                isOpen: '='
+                isOpen: '=',
+                isBack: '='
             },
             controller: function ($scope) {
                 if (!$scope.config) {
                     $scope.config = {
                         //this will be list with animates, u'll setUp what u whant in 'anime'
                         animation: 'slide',
-                        style: {'width': '50px'}
+                        style: {'width': '40vw'}
                     };
                 }
             }

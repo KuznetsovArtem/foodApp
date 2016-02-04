@@ -46,10 +46,10 @@
         <div>L</div>
     </div>
 
-    <left-bar config="CONFIG.leftBar" is-open="false"></left-bar>
+    <left-bar config="CONFIG.leftBar" is-open="CONFIG.leftBar.isOpen" is-back="false"></left-bar>
 
 
-    <div class="container" ng-style="configLeftBar.isOpen ? configLeftBar.style.push: ''" ng-view=""></div>
+    <div class="container" ng-class="(CONFIG.leftBar.isOpen)? 'slideMainContent' :  'slideMainContentBack'"  ng-view=""></div>
 
 </div>
 </body>

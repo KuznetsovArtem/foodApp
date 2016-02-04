@@ -67,4 +67,40 @@ html, body {
 
   }
 
+
+  .slideMainContent {
+
+    left:40vw;
+    animation: openLeftBar 0.3s linear 1;
+
+  }
+
+  .slideMainContentBack {
+
+    left: 0;
+    animation: slideMainContentBack 0.3s linear 1;
+
+    @keyframes slideMainContentBack {
+
+      0% {
+
+        transform: translateX(40vw);
+
+      }
+
+      50% {
+
+        transform: translateX(20vw);
+
+      }
+      100% {
+
+        transform: translateX(0vw);
+
+      }
+
+    }
+
+  }
+
 }
