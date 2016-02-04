@@ -1,11 +1,21 @@
 <div class="leftBar">
-    <a href="" ng-show="!isOpen" ng-click="isOpen = !isOpen" class="fBtn leftBarToggle"><div class="icons__menuBurger"></div></a>
-    <div class="shadow" ng-click="isOpen = !isOpen" ng-show="isOpen"></div>
-    <div class="leftBarMain" ng-class="config.animation"  ng-style="config.style" ng-show="isOpen">
+    <a href="" ng-show="!isBack" ng-click="isOpen = !isOpen; isBack = !isBack"
+       ng-class="isOpen ? 'slideToggle' :  'slideToggleBack'" class="fBtn leftBarToggle">
+        <div class="icons__menuBurger"></div>
+    </a>
+    <a href="" ng-show="isBack" ng-click="isOpen = !isOpen; isBack = !isBack"
+       ng-class="isOpen ? 'slideToggle' :  'slideToggleBack'" class="fBtn leftBarToggle">
+        <div class=""><</div>
+    </a>
+
+    <div class="shadow" ng-click="isOpen = !isOpen; isBack = !isBack" ng-show="isOpen"></div>
+    <div class="leftBarMain" ng-class="config.animation" ng-style="config.style" ng-show="isOpen">
         <div class="containerFlex leftBar_content">
-            <a href="#/filters" class="fBtn">{{$root.t('foodApp.leftBar.filters')}}</a>
-            <a href="#/favorites" class="fBtn">{{$root.t('foodApp.leftBar.favorites')}}</a>
-            <a href="#/last" class="fBtn">{{$root.t('foodApp.leftBar.last')}}</a>
+
+            <a href="/filtersPage" class="fBtn">{{$root.t('foodApp.leftBar.filters')}}</a>
+            <a href="/settingPage" class="fBtn">{{$root.t('foodApp.leftBar.setting')}}</a>
+            <a href="/historyPage" class="fBtn">{{$root.t('foodApp.leftBar.history')}}</a>
+
         </div>
     </div>
 </div>
