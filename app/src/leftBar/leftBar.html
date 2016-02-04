@@ -1,15 +1,15 @@
 <div class="leftBar">
-    <a href="" ng-show="!isBack" ng-click="isOpen = !isOpen; isBack = !isBack"
-       ng-class="isOpen ? 'slideToggle' :  'slideToggleBack'" class="fBtn leftBarToggle">
+    <a href="" ng-click="toggle()" ng-show="!isBack"
+        class="fBtn leftBarToggle">
         <div class="icons__menuBurger"></div>
     </a>
-    <a href="" ng-show="isBack" ng-click="isOpen = !isOpen; isBack = !isBack"
-       ng-class="isOpen ? 'slideToggle' :  'slideToggleBack'" class="fBtn leftBarToggle">
+    <a href="" ng-show="isBack" ng-click="toggle()"
+       class="fBtn leftBarToggle">
         <div class=""><</div>
     </a>
 
-    <div class="shadow" ng-click="isOpen = !isOpen; isBack = !isBack" ng-show="isOpen"></div>
-    <div class="leftBarMain" ng-class="config.animation" ng-style="config.style" ng-show="isOpen">
+    <div class="shadow" ng-click="toggle()" ng-show="isOpen"></div>
+    <div class="leftBarMain" ng-class="" ng-style="config.style" ng-show="isOpen">
         <div class="containerFlex leftBar_content">
 
             <a href="/filtersPage" class="fBtn">{{$root.t('foodApp.leftBar.filters')}}</a>

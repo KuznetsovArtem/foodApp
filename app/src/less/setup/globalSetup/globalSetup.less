@@ -14,8 +14,8 @@ html, body {
     src: url('/src/fonts/SourceSansPro-Regular.otf');
   }
 
-  .slide {
-
+  .slideContent {
+    left: 40vw;
     animation: openLeftBar 0.3s linear 1;
 
     @keyframes openLeftBar {
@@ -40,47 +40,11 @@ html, body {
     }
   }
 
-  .slide.ng-hide {
-
+  .slideContentBack {
+    left: 0;
     animation: closeLeftBar 0.3s linear 1;
 
     @keyframes closeLeftBar {
-
-      0% {
-
-        transform: translateX(0vw);
-
-      }
-
-      50% {
-
-        transform: translateX(-20vw);
-
-      }
-      100% {
-
-        transform: translateX(-40vw);
-
-      }
-
-    }
-
-  }
-
-
-  .slideMainContent {
-
-    left:40vw;
-    animation: openLeftBar 0.3s linear 1;
-
-  }
-
-  .slideMainContentBack {
-
-    left: 0;
-    animation: slideMainContentBack 0.3s linear 1;
-
-    @keyframes slideMainContentBack {
 
       0% {
 
@@ -102,5 +66,10 @@ html, body {
     }
 
   }
+
+
+
+
+
 
 }

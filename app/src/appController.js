@@ -2,7 +2,7 @@
  * Created by askuznetsov on 12/23/2015.
  */
 angular.module('foodApp')
-    .controller('appController', ['$scope', 'localCacheService', '$element', function ($scope, cache, $element) {
+    .controller('appController', ['$scope', 'localCacheService', '$rootScope', function ($scope, cache, $rootScope) {
         ons.bootstrap();
 
 
@@ -29,7 +29,10 @@ angular.module('foodApp')
             leftBar: {
                 isOpen: false,
                 //here will be list with animates, u'll setUp what u want in 'anime'
-                animation: 'slide',
+                animation: {
+                    in: 'slideContent',
+                    out: 'slideContentBack'
+                },
                 //don't touch this plz
                 style: {'width': '40vw'}
             },
@@ -40,18 +43,6 @@ angular.module('foodApp')
 
         $scope.CONFIG = CONFIG;
 
-//slider
-        function sliderFunc() {
-            var res = '';
-            return function () {
-                if (CONFIG.leftBar.isOpen) {
-                    res = 'slideMainContent';
-                } else if (res === 'slideMainContent') {
-                    res = 'slideMainContentBack';
-                }
-                return res;
-            }
-        }
-        $scope.slider = sliderFunc();
+        $scope.leftBarSlider = '';
 
     }]);

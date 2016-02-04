@@ -11,7 +11,7 @@ angular
             scope: {
                 config: '=',
                 isOpen: '=',
-                isBack: '='
+                slider: '='
             },
             controller: function ($scope) {
                 if (!$scope.config) {
@@ -20,6 +20,17 @@ angular
                         animation: 'slide',
                         style: {'width': '40vw'}
                     };
+                }
+                $scope.isBack = false;
+                $scope.toggle = function () {
+                    $scope.isOpen = !$scope.isOpen;
+                    if ($scope.slider === $scope.config.animation.in) {
+                        $scope.slider = $scope.config.animation.out;
+                        $scope.isBack = false;
+                    } else {
+                        $scope.slider = $scope.config.animation.in;
+                        $scope.isBack = true;
+                    }
                 }
             }
         }
