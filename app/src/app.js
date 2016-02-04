@@ -24,7 +24,9 @@ angular
     ])
 
   // TODO: move routing to routing.js in /
-    .config(['$routeProvider', function ($routeProvider) {
+    .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+
+        $locationProvider.html5Mode(true);
 
         $routeProvider
             .when('/', {
@@ -32,6 +34,15 @@ angular
             })
             .when('/mainPage', {
                 templateUrl: 'src/mainPage/mainPage.html'
+            })
+            .when('/filtersPage', {
+                templateUrl: 'src/filtersPage/filtersPage.html'
+            })
+            .when('/settingPage', {
+                templateUrl: 'src/settingPage/settingPage.html'
+            })
+            .when('/historyPage', {
+                templateUrl: 'src/historyPage/historyPage.html'
             })
             .otherwise({
                 redirectTo: '/'

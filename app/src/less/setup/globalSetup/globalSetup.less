@@ -5,9 +5,102 @@ html, body {
   overflow: hidden;
   font-family: "SansPro", sans-serif;
 
-}
+  ::-webkit-scrollbar {
+    display: none;
+  }
 
-@font-face {
-  font-family: SansPro;
-  src: url('/src/fonts/SourceSansPro-Regular.otf');
+  @font-face {
+    font-family: SansPro;
+    src: url('/src/fonts/SourceSansPro-Regular.otf');
+  }
+
+  .slide {
+
+    animation: openLeftBar 0.3s linear 1;
+
+    @keyframes openLeftBar {
+
+      0% {
+
+        transform: translateX(-40vw);
+
+      }
+
+      50% {
+
+        transform: translateX(-20vw);
+
+      }
+      100% {
+
+        transform: translateX(0vw);
+
+      }
+
+    }
+  }
+
+  .slide.ng-hide {
+
+    animation: closeLeftBar 0.3s linear 1;
+
+    @keyframes closeLeftBar {
+
+      0% {
+
+        transform: translateX(0vw);
+
+      }
+
+      50% {
+
+        transform: translateX(-20vw);
+
+      }
+      100% {
+
+        transform: translateX(-40vw);
+
+      }
+
+    }
+
+  }
+
+
+  .slideMainContent {
+
+    left:40vw;
+    animation: openLeftBar 0.3s linear 1;
+
+  }
+
+  .slideMainContentBack {
+
+    left: 0;
+    animation: slideMainContentBack 0.3s linear 1;
+
+    @keyframes slideMainContentBack {
+
+      0% {
+
+        transform: translateX(40vw);
+
+      }
+
+      50% {
+
+        transform: translateX(20vw);
+
+      }
+      100% {
+
+        transform: translateX(0vw);
+
+      }
+
+    }
+
+  }
+
 }

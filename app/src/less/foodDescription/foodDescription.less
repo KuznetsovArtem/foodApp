@@ -1,3 +1,4 @@
+@readMoreHeight: 30px;
 //colors
 @headerAndDescription: #7bafab;
 
@@ -9,28 +10,26 @@
   background: rgba(red(@color), green(@color), blue(@color), @alpha);
 }
 
-
-.foodDescription{
+.foodDescription {
 
   font-style: italic;
   .bg-transparent(@headerAndDescription, @headerAndDescription_opacity);
   font-size: 15px;
-  padding: 5px;
   text-transform: none;
   box-sizing: border-box;
-
+  padding-left: 5px;
   overflow: hidden;
 
   .read-more {
 
-    display:block;
+    display: block;
     float: right;
     overflow: hidden;
     color: #dceaf0;
     font-style: normal;
   }
 
-  .openDescription{
+  .openDescription {
     overflow-x: hidden;
     overflow-y: scroll;
     font-size: 15px;
@@ -39,12 +38,22 @@
 
       height: calc(~'100vh - @{HeaderHeight} - @{mainButtonsContainerHeight}');
 
+      .read-more {
+        position: absolute;
+        z-index: 15;
+        width: 100%;
+        height: @readMoreHeight;
+        .bg-transparent(@headerAndDescription, @headerAndDescription_opacity);
+        bottom: @mainButtonsContainerHeight;
+        left: 0;
+        text-align: center;
+        line-height: @readMoreHeight;
+      }
 
     }
     @media screen and (orientation: landscape) {
 
       height: calc(~'100vh - 25px - 75px');
-
 
     }
 

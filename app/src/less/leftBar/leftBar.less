@@ -4,8 +4,7 @@
 
   .leftBarToggle {
     position: absolute;
-    left: 10px;
-    z-index: 100;
+    z-index: 900;
 
     @media screen and (orientation: portrait) {
 
@@ -19,6 +18,8 @@
       width: 25px;
 
     }
+
+
 
   }
 
@@ -54,52 +55,34 @@
 
   }
 
-  .slide {
+  .slideToggle {
 
+    left:40vw;
     animation: openLeftBar 0.3s linear 1;
 
-    @keyframes openLeftBar {
-
-      0% {
-
-        transform: translateX(-40vw);
-
-      }
-
-      50% {
-
-        transform: translateX(-20vw);
-
-      }
-      100% {
-
-        transform: translateX(0vw);
-
-      }
-
-    }
   }
 
-  .slide.ng-hide {
+  .slideToggleBack {
 
-    animation: closeLeftBar 0.3s linear 1;
+    left: 0;
+    animation: slideToggleBack 0.3s linear 1;
 
-    @keyframes closeLeftBar {
+    @keyframes slideToggleBack {
 
       0% {
 
-        transform: translateX(0vw);
+        transform: translateX(40vw);
 
       }
 
       50% {
 
-        transform: translateX(-20vw);
+        transform: translateX(20vw);
 
       }
       100% {
 
-        transform: translateX(-40vw);
+        transform: translateX(0vw);
 
       }
 
