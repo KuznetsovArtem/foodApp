@@ -39,13 +39,19 @@ angular.module('foodApp')
         };
 
         $scope.CONFIG = CONFIG;
-        var res = '';
-        $scope.slider = function () {
+
+//slider
+        function sliderFunc() {
+            var res = '';
+            return function () {
                 if (CONFIG.leftBar.isOpen) {
                     res = 'slideMainContent';
-                } else if(res === 'slideMainContent') {
+                } else if (res === 'slideMainContent') {
                     res = 'slideMainContentBack';
                 }
-            return res;
+                return res;
+            }
         }
+        $scope.slider = sliderFunc();
+
     }]);
