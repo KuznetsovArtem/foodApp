@@ -42,8 +42,8 @@ angular.module('foodApp.modules.common.services.localization', [])
               'foodApp.description.readLess' : 'Меньше информации',
               'foodApp.startPage.goToMainButton':'На главную',
               'foodApp.leftBar.filters': 'фильтры',
-              'foodApp.leftBar.favorites': 'избранное',
-              'foodApp.leftBar.last': 'последние'
+              'foodApp.leftBar.setting': 'настройка',
+              'foodApp.leftBar.history': 'последние'
 
           },
           'en' : {
@@ -52,8 +52,8 @@ angular.module('foodApp.modules.common.services.localization', [])
               'foodApp.description.readLess' : 'read less',
               'foodApp.startPage.goToMainButton':'go 2 main',
               'foodApp.leftBar.filters': 'filters',
-              'foodApp.leftBar.favorites': 'favorites',
-              'foodApp.leftBar.last': 'last'
+              'foodApp.leftBar.setting': 'setting',
+              'foodApp.leftBar.history': 'last'
 
           }
         };

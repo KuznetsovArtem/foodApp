@@ -5,9 +5,71 @@ html, body {
   overflow: hidden;
   font-family: "SansPro", sans-serif;
 
-}
+  ::-webkit-scrollbar {
+    display: none;
+  }
 
-@font-face {
-  font-family: SansPro;
-  src: url('/src/fonts/SourceSansPro-Regular.otf');
+  @font-face {
+    font-family: SansPro;
+    src: url('/src/fonts/SourceSansPro-Regular.otf');
+  }
+
+  .slideContent {
+    left: 40vw;
+    animation: openLeftBar 0.3s linear 1;
+
+    @keyframes openLeftBar {
+
+      0% {
+
+        transform: translateX(-40vw);
+
+      }
+
+      50% {
+
+        transform: translateX(-20vw);
+
+      }
+      100% {
+
+        transform: translateX(0vw);
+
+      }
+
+    }
+  }
+
+  .slideContentBack {
+    left: 0;
+    animation: closeLeftBar 0.3s linear 1;
+
+    @keyframes closeLeftBar {
+
+      0% {
+
+        transform: translateX(40vw);
+
+      }
+
+      50% {
+
+        transform: translateX(20vw);
+
+      }
+      100% {
+
+        transform: translateX(0vw);
+
+      }
+
+    }
+
+  }
+
+
+
+
+
+
 }

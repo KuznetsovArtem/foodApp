@@ -31,10 +31,12 @@
     <base href="/">
 
 </head>
-<body ng-app="foodApp">
-<div class="container" ng-cloak ng-controller="appController">
 
-    <div class="loading" ng-show="loading.showWeirdLoad">
+<body ng-app="foodApp"  ng-cloak ng-controller="appController">
+<div class="container" ng-class="leftBarSlider">
+
+    <div class="loading"  ng-show="loading.showWeirdLoad">
+
         <div>G</div>
         <div>N</div>
         <div>I</div>
@@ -44,9 +46,10 @@
         <div>L</div>
     </div>
 
-    <left-bar config="CONFIG.leftBar" is-open="false"></left-bar>
+    <left-bar config="CONFIG.leftBar" is-open="CONFIG.leftBar.isOpen" slider="leftBarSlider"></left-bar>
 
-    <div ng-view=""></div>
+
+    <div class="container"  ng-view=""></div>
 
 </div>
 </body>
