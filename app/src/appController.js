@@ -2,9 +2,13 @@
  * Created by askuznetsov on 12/23/2015.
  */
 angular.module('foodApp')
-    .controller('appController', ['$scope', 'localCacheService', '$rootScope', function ($scope, cache, $rootScope) {
-        ons.bootstrap();
-
+    .controller('appController', [
+        '$scope',
+        'localCacheService',
+        'ROUTES',
+        function ($scope, cache, ROUTES) {
+        //ons.bootstrap();
+        $scope.urls = ROUTES;
 
         // TODO: rm: next lines for education purposes;
         cache.put('some-data', {a: 1});
@@ -23,6 +27,12 @@ angular.module('foodApp')
             showWeirdLoad: false
         };
 
+        // Mocked food // TODO: get from model
+        $scope.foodItem = {
+            name: 'Some food',
+            description: 'Some very long description specially for \'testing purposes... 12345 , \' \' bla-bla 12345 "test" ,and ones more: Some very long description specially for \'testing purposes... , \' \' bla-bla 12345 "test" '
+        };
+
 
         // TODO: move to own provider/service
         var CONFIG = {
@@ -37,7 +47,7 @@ angular.module('foodApp')
                 style: {'width': '40vw'}
             },
             descriptionDirective: {
-                symbolNumber: '180'
+                shortDescriptionLength: '180'
             }
         };
 
