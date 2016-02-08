@@ -33,22 +33,15 @@
 <body ng-app="foodApp" ng-controller="appController">
 
 <div class="container">
+    <left-bar config="configLeftBar" isOpen="false"></left-bar>
+    <div ng-view=""></div>
 
-    <div class="loading" ng-if="true">
 
-        <div>G</div>
-        <div>N</div>
-        <div>I</div>
-        <div>D</div>
-        <div>A</div>
-        <div>O</div>
-        <div>L</div>
-
+    <div class="startPage">
+        <div class="logo"></div>
+        <a class="fBtn button" href="#/mainPage">FIND FOOD</a>
     </div>
 
-    <left-bar config="configLeftBar" isOpen="false"></left-bar>
-
-    <div ng-view=""></div>
 
 </div>
 </body>
