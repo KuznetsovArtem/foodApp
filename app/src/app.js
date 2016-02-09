@@ -23,29 +23,34 @@ angular
         'foodApp.modules.common.services.localCache'
     ])
 
+    // TODO: Artem: move to conf file;
+    .constant('ROUTES', {
+        DEFAULT: '/',
+        FOOD_PAGE: '/food'
+    })
   // TODO: move routing to routing.js in /
-    .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+    .config(['$routeProvider', '$locationProvider', 'ROUTES', function ($routeProvider, $locationProvider, ROUTES) {
 
         $locationProvider.html5Mode(true);
 
         $routeProvider
-            .when('/', {
+            .when(ROUTES.DEFAULT, {
                 templateUrl: 'src/startPage/startPage.html'
             })
-            .when('/mainPage', {
+            .when(ROUTES.FOOD_PAGE, {
                 templateUrl: 'src/mainPage/mainPage.html'
-            })
-            .when('/filtersPage', {
+            })// TODO:
+            .when('/filters', {
                 templateUrl: 'src/filtersPage/filtersPage.html'
             })
-            .when('/settingPage', {
+            .when('/setting', {
                 templateUrl: 'src/settingPage/settingPage.html'
             })
-            .when('/historyPage', {
+            .when('/history', {
                 templateUrl: 'src/historyPage/historyPage.html'
             })
             .otherwise({
-                redirectTo: '/'
+                redirectTo: ROUTES.DEFAULT
             });
     }])
 

@@ -7,13 +7,13 @@
                 <div class="header">
                     <div class="headerItem blank"></div>
 
-                    <div class="headerItem foodName">Some food</div>
+                    <div class="headerItem foodName">{{foodItem.name}}</div>
                     <div class="headerItem fBtn" href="">
                         <div class="icons__menuVertical"></div>
                     </div>
                 </div>
 
-                <food-description config="CONFIG.descriptionDirective"></food-description>
+                <food-description config="CONFIG.descriptionDirective" description="foodItem.description"></food-description>
 
             </div>
 
