@@ -20,35 +20,60 @@ angular
         'ngTouch',
         //local
         'foodApp.modules.common.services.localization',
-        'foodApp.modules.common.services.cache'
+        'foodApp.modules.common.services.localCache'
     ])
 
-    .config(['$routeProvider', 'localizationConfigProvider', function ($routeProvider, localizationConfigProvider) {
+    // TODO: Artem: move to conf file;
+    .constant('ROUTES', {
+        DEFAULT: '/',
+        FOOD_PAGE: '/food'
+    })
+  // TODO: move routing to routing.js in /
+    .config(['$routeProvider', '$locationProvider', 'ROUTES', function ($routeProvider, $locationProvider, ROUTES) {
+
+        $locationProvider.html5Mode(true);
 
         $routeProvider
-            .when('/', {
+            .when(ROUTES.DEFAULT, {
                 templateUrl: 'src/startPage/startPage.html'
             })
-            .when('/mainPage', {
+            .when(ROUTES.FOOD_PAGE, {
                 templateUrl: 'src/mainPage/mainPage.html'
+            })// TODO:
+            .when('/filters', {
+                templateUrl: 'src/filtersPage/filtersPage.html'
+            })
+            .when('/setting', {
+                templateUrl: 'src/settingPage/settingPage.html'
+            })
+            .when('/history', {
+                templateUrl: 'src/historyPage/historyPage.html'
             })
             .otherwise({
-                redirectTo: '/'
+                redirectTo: ROUTES.DEFAULT
             });
+    }])
+
+    .config([
+        'localizationConfigProvider',
+        'localCacheConfigProvider',
+        function(
+            localizationConfigProvider,
+            localCacheConfigProvider) {
 
         // set default language;
         localizationConfigProvider.init({
-            lang: 'en'
-        })
+           lang: 'en'
+        });
 
+        localCacheConfigProvider.init({
+           prefix: 'foodApp'
+        });
     }])
 
-    .run(['$rootScope', 'localizationService', 'userSessionStorage',
-        function ($rootScope, localizationService, storage) {
+    .run(['$rootScope', 'localizationService',
+        function ($rootScope, localizationService) {
             // override def lang with user's lang;
-            localizationService.setLang(storage.getUser().lang);
             $rootScope.t = localizationService.getMessage;
-
-
         }]);
 

@@ -38,13 +38,23 @@ angular.module('foodApp.modules.common.services.localization', [])
         var messages = {
           'ru' : {
               'foodApp.main.header' : 'Текст на хидере',
-              'foodApp.description.readMore' : 'read more',
-              'foodApp.description.readLess' : 'read less'
+              'foodApp.description.readMore' : 'Больше информации',
+              'foodApp.description.readLess' : 'Меньше информации',
+              'foodApp.startPage.goToMainButton':'На главную',
+              'foodApp.leftBar.filters': 'фильтры',
+              'foodApp.leftBar.setting': 'настройка',
+              'foodApp.leftBar.history': 'последние'
+
           },
           'en' : {
               'foodApp.main.header' : 'Text on header',
-              'foodApp.description.readMore' : 'Больше информации',
-              'foodApp.description.readLess' : 'Меньше информации'
+              'foodApp.description.readMore' : 'read more',
+              'foodApp.description.readLess' : 'read less',
+              'foodApp.startPage.goToMainButton':'go 2 main',
+              'foodApp.leftBar.filters': 'filters',
+              'foodApp.leftBar.setting': 'setting',
+              'foodApp.leftBar.history': 'last'
+
           }
         };
         return {

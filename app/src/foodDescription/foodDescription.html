@@ -1,15 +1,11 @@
-<div class="foodDescription" ng-show="descriptionContainer">
+<div class="foodDescription" ng-show="fullDescription" ng-init="openDescription = false">
     <div ng-show="!openDescription">
-
-        {{descriptionVendor}}
+        {{shortDescription}}
         <a class="read-more fBtn" ng-click="openDescription = !openDescription"> {{$root.t('foodApp.description.readMore')}}  </a>
-
     </div>
 
     <div class="openDescription" ng-show="openDescription">
-
-        {{descriptionContainer}}
-        <a class="read-more fBtn" ng-click="openDescription = !openDescription"> {{$root.t('foodApp.description.readLess')}} </a>
-
+        {{fullDescription}}
+        <a class="read-more fBtn" ng-click="openDescription = !openDescription">{{$root.t('foodApp.description.readLess')}} </a>
     </div>
 </div>

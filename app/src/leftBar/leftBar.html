@@ -1,19 +1,42 @@
 <div class="leftBar">
+    <a href="" ng-click="toggle()" ng-show="!isBack"
+        class="fBtn leftBarToggle">
+        <div class="icons__menuBurger"></div>
+    </a>
+    <a href="" ng-show="isBack" ng-click="toggle()"
+       class="fBtn leftBarToggle">
+        <div class=""><</div>
+    </a>
 
-    <a href="" ng-show="!isOpen" ng-click="isOpen = !isOpen" class="fBtn leftBarToggle"><div class="icons__menuBurger"></div></a>
+    <!--Logic:-->
+    <!--
+    Hamburger Btn:
+        - separate element,
+        - required param for menu directive
+        - UI changes in css classes only, changes in menu directive
+        - callback fxs from 'current' parent controller for navigation
 
-    <div class="shadow" ng-click="isOpen = !isOpen" ng-show="isOpen"></div>
+    Menu block:
+        - absolute position left
+        - no animation
+        - size in conf
 
-    <div class="leftBarMain" ng-class="config.anime"  ng-style="config.style" ng-show="isOpen">
+    Content block
+        - separate from directive
+        - z-position 'on' menu block
+        - required param for menu directive
+        - only margin changes in directive (menu size from config)
+    -->
 
+    <div class="shadow" ng-click="toggle()" ng-show="isOpen"></div>
+    <div class="leftBarMain" ng-class="" ng-style="config.style" ng-show="isOpen">
         <div class="containerFlex leftBar_content">
 
-            <a href="#/filters" class="fBtn">filters</a>
-            <a href="#/favorites" class="fBtn">favorites</a>
-            <a href="#/last" class="fBtn">last</a>
+            <!--TODO: ng-href + urls-->
+            <a href="/filtersPage" class="fBtn">{{$root.t('foodApp.leftBar.filters')}}</a>
+            <a href="/settingPage" class="fBtn">{{$root.t('foodApp.leftBar.setting')}}</a>
+            <a href="/historyPage" class="fBtn">{{$root.t('foodApp.leftBar.history')}}</a>
 
         </div>
-
     </div>
-
 </div>

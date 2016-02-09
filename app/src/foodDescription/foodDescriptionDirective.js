@@ -4,41 +4,31 @@
 'use strict';
 
 angular
-
+    // TODO: module : foodApp.modules.food.directives.foodDescription
+    // + TODO: save folder structure;
     .module('foodApp')
-
     .directive('foodDescription', [function () {
         return {
             templateUrl: '/src/foodDescription/foodDescription.html',
             scope:{
-                config: '='
+                config: '=?',
+                fullDescription: '=?description'
             },
-            controller: function ($scope, $element, $attrs) {
+            link: function (scope) {
+                var defConfig = {
+                    shortDescriptionLength: 190,
+                    shortDescriptionEnd: '...'
+                };
 
+                var CONFIG = angular.merge({}, defConfig, scope.config);
 
-                if(!$scope.config){
-
-                    $scope.config = {
-
-                        symbolNumber: '190'
-
-                    };
-
-                }
-
-                $scope.descriptionContainer = '1pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood  pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood pizzaGood'
-                $scope.descriptionVendor = '';
-                $scope.openDescription = false;
-
-                var makeDescription = function (symbolNumber) {
-
-                    if ($scope.descriptionContainer) {
-                        $scope.descriptionVendor = $scope.descriptionContainer.slice(0, symbolNumber).split(' ').slice(0, -1).join(' ') + '...';
-                    }
-
-                }($scope.config.symbolNumber);
-
-
+                // TODO: move to food model;
+                scope.shortDescription = [
+                    scope.fullDescription.slice(0, CONFIG.shortDescriptionLength)
+                        .split(' ').slice(0, -1).join(' '),
+                    CONFIG.shortDescriptionEnd
+                ].join('');
+                // TODO: no 'read more' if text length < conf text length
             }
         }
     }]);

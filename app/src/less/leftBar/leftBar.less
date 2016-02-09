@@ -1,12 +1,11 @@
 @leftBarColor: #7bafab;
 
 .leftBar {
+  left:-40vw;
 
   .leftBarToggle {
     position: absolute;
-    left: 10px;
-    z-index: 100;
-
+    z-index: 900;
     @media screen and (orientation: portrait) {
 
       height: 50px;
@@ -19,6 +18,8 @@
       width: 25px;
 
     }
+
+
 
   }
 
@@ -35,11 +36,12 @@
   .leftBarMain {
 
     position: absolute;
-    z-index: 100;
+    z-index: 500;
     background: darken(@leftBarColor, 0%);
     height: 100%;
     width: 150px;
-    overflow: hidden;
+    overflow-x: visible;;
+    left: -40vw;
 
     .leftBar_content {
 
@@ -51,59 +53,6 @@
 
     }
 
-
-  }
-
-  .slide {
-
-    animation: openLeftBar 0.3s linear 1;
-
-    @keyframes openLeftBar {
-
-      0% {
-
-        transform: translateX(-40vw);
-
-      }
-
-      50% {
-
-        transform: translateX(-20vw);
-
-      }
-      100% {
-
-        transform: translateX(0vw);
-
-      }
-
-    }
-  }
-
-  .slide.ng-hide {
-
-    animation: closeLeftBar 0.3s linear 1;
-
-    @keyframes closeLeftBar {
-
-      0% {
-
-        transform: translateX(0vw);
-
-      }
-
-      50% {
-
-        transform: translateX(-20vw);
-
-      }
-      100% {
-
-        transform: translateX(-40vw);
-
-      }
-
-    }
 
   }
 
