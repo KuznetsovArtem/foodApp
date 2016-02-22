@@ -4,22 +4,29 @@
 'use strict';
 
 angular
-    .module('foodApp')
-    .directive('leftBar', [function () {
-        return {
-            templateUrl: '/src/leftBar/leftBar.html',
-            scope: {
-                config: '=',
-                isOpen: '='
-            },
-            controller: function ($scope) {
-                if (!$scope.config) {
-                    $scope.config = {
-                        //this will be list with animates, u'll setUp what u whant in 'anime'
-                        animation: 'slide',
-                        style: {'width': '50px'}
-                    };
-                }
+  .module('foodApp')
+  .directive('leftBar', [function() {
+    return {
+      templateUrl: '/src/leftBar/leftBar.html',
+      scope: {
+        config: '='
+      },
+      require: ['^nav'],
+      controller: function($scope) {
+        if (!$scope.config) {
+          $scope.config = {
+            //this will be list with animates, u'll setUp what u whant in 'anime'
+            animation: 'slide',
+            style: {
+              'width': '50px'
             }
+          };
         }
-    }]);
+
+      },
+      link: function(scope, element, attrs, controllers) {
+    
+        scope.navCtrl = controllers[0];
+      },
+    }
+  }]);

@@ -1,7 +1,6 @@
 <div class="leftBar">
-    <a href="" ng-show="!isOpen" ng-click="isOpen = !isOpen" class="fBtn leftBarToggle"><div class="icons__menuBurger"></div></a>
-    <div class="shadow" ng-click="isOpen = !isOpen" ng-show="isOpen"></div>
-    <div class="leftBarMain" ng-class="config.animation"  ng-style="config.style" ng-show="isOpen">
+    <div class="shadow" ng-click="navCtrl.isOpenSideBar = !navCtrl.isOpenSideBar" ng-show="navCtrl.isOpenSideBar"></div>
+    <div class="leftBarMain" ng-class="config.animation"  ng-style="config.style" ng-show="navCtrl.isOpenSideBar">
         <div class="containerFlex leftBar_content">
             <a href="#/filters" class="fBtn">{{$root.t('foodApp.leftBar.filters')}}</a>
             <a href="#/favorites" class="fBtn">{{$root.t('foodApp.leftBar.favorites')}}</a>

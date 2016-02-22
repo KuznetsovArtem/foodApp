@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <title>wannaEat</title>
 
@@ -17,6 +17,10 @@
     <script src="libs/angular-touch/angular-touch.min.js"></script>
     <script src="libs/OnsenUI/js/onsenui.min.js"></script>
     <script src="src/app.js"></script>
+
+    <script src="src/leftBar/addAnime/addAnimeSideBar.js"></script>
+    <script src="src/leftBar/button/buttonSideDirective.js"></script>
+    <script src="src/leftBar/nav/navDirective.js"></script>
     <script src="src/appController.js"></script>
     <script src="src/common/cacheService.js"></script>
     <script src="src/common/localizationService.js"></script>
@@ -30,11 +34,11 @@
 
     <base href="/">
 
-</head>
-<body ng-app="foodApp">
-<div class="container" ng-cloak ng-controller="appController">
+  </head>
+  <body ng-app="foodApp">
+    <div nav class="container" ng-cloak ng-controller="appController">
 
-    <div class="loading" ng-show="loading.showWeirdLoad">
+      <div class="loading" ng-show="loading.showWeirdLoad">
         <div>G</div>
         <div>N</div>
         <div>I</div>
@@ -42,12 +46,16 @@
         <div>A</div>
         <div>O</div>
         <div>L</div>
+      </div>
+
+      <left-bar config="CONFIG.leftBar"></left-bar>
+
+      <div add-anime-side-bar="" >
+        <button-side></button-side>
+      </div>
+
+      <div add-anime-side-bar="" ng-view=""></div>
+
     </div>
-
-    <left-bar config="CONFIG.leftBar" is-open="false"></left-bar>
-
-    <div ng-view=""></div>
-
-</div>
-</body>
+  </body>
 </html>
